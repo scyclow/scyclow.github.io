@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "Inconsolata";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Inconsolata"), url("http://themes.googleusercontent.com/static/fonts/inconsolata/v3/BjAYBlHtW3CJxDcjzrnZCIbN6UDyHWBl620a-IRfuBk.woff") format("woff");
+}
+
+
+body {
+	background-image: url(../backgrounds/squared_metal.png);
+	font-family: "Inconsolata";
+
+}
+
+#header {
+	position: fixed;
+	width: 100%;
+	height: 100px;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0,30,80,.45);
+}
+
+#tit {
+	width: 350px;
+	height:99px;
+	background-color: rgba(15,15,15,.9);
+	border-top: 1px solid #5C554F;
+
+}
+
+h1 {
+	position: relative;
+	top: 10px;
+	left: 3px;
+	font-size: 35px;
+	color: rgb(224,224,224);
+}
+
+p {
+	font-family: Bitstream Charter, "Droid Serif";
+}
+
+
+#sidebar {
+	position: fixed;
+	top: 100px;
+	left: 0px;
+	width:349px;
+	height: 100%;
+
+	border-right: 1px solid black;
+}
+
+#sidebar p, h2 {
+	padding-left: 10px;
+}
+
+#frame {
+	position: relative;
+	top: 100px;
+	left: 350px;
+
+	width: 600px;
+	margin-bottom: 50px;
+}
+
+#content {
+	position: relative;
+	left: 20px;
+
+	width: 560px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: justify;
+	background-color: rgba(255,255, 255, .6);
+	
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
+.post {
+	position: relative;
+	top: 1px;
+	border-bottom: 1px solid black;
+}
+
+a:link {color: rgb(175,0,0);}
+a:visited {color: rgb(0,15,90);}
+a:hover {color: rgb(90,0,45);}
+
+#footer {
+	position: absolute;
+	bottom: -60px;
+	clear: both;
+	font-size: 12px;
+}
