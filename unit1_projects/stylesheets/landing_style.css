@@ -41,3 +41,168 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+html {
+	background-image: url("../../backgrounds/squared_metal.png");
+	background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'PT Sans Narrow', serif;
+}
+
+h1 {
+	color: white;
+
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	background-color: #00111a;
+	opacity: .85;
+	padding: .4em .4em;
+
+	text-align: center;
+	border: 1px solid green; 
+}
+
+#container {
+
+	border: 1px solid purple;
+
+}
+
+img {
+	width: 200px;
+	display: block;
+	border-radius: 100px;
+	margin: 0px auto;
+
+}
+
+img, aside, #main, article, section, #img_wrapper {
+	border: 1px solid black;
+}
+
+@media screen and (max-width: 554px){
+
+	header {
+		font-size: 35px;
+	}
+
+	#container {
+		padding-top: 70px
+	}
+
+	aside, #main {
+		width: 360px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 770px) and (min-width:555px) {
+
+	header {
+		font-size: 35px;
+	}
+
+	#container {
+		padding-top: 70px;
+		width: 97%;
+		margin-left: auto;
+		margin-right: auto;
+
+		padding-left: 1%;
+		padding-right: 1%
+	}
+
+
+	aside {
+		width: 100%;
+		margin-bottom: 10px
+
+	}
+
+	#img_wrapper {
+		width: 40%;
+		float: left;
+	
+	}
+
+	img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	aside section{
+		width:59%;
+		height: 130px;
+		float: right;
+	}
+
+	#main {
+
+		float: right;
+		width:59%;
+	}
+
+	#main, #main article {
+
+
+	}
+
+	footer {
+		clear: both;
+	}
+}
+	
+
+
+
+@media screen and (min-width: 771px){
+
+	header {
+		font-size: 50px;
+	}
+
+	#container {
+		width: 33%;
+		margin-left: auto;
+		margin-right: auto;
+		min-width: 713px;
+		padding-top: 100px;
+		padding-left: 1%;
+		padding-right: 1%
+	}
+
+	aside {
+		width:38%;
+		max-width: 273.6px;
+		float: left;
+		margin-right: 1%
+	}
+
+	#main, #main article {
+		width:59%;
+		max-width: 424.8px;
+		float: right;
+	}
+
+	footer {
+		clear: both;
+	}
+
+}
+
+
+
+
+
+
+
