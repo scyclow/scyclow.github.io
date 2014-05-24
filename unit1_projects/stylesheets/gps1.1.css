@@ -1,0 +1,68 @@
+/* include your css here */
+
+#body{
+    background: #fcecfc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 50%, #fd89d7 81%, #ff7cd8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcecfc), color-stop(50%,#fba6e1), color-stop(81%,#fd89d7), color-stop(100%,#ff7cd8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 81%,#ff7cd8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 81%,#ff7cd8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #fcecfc 0%,#fba6e1 50%,#fd89d7 81%,#ff7cd8 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 50%,#fd89d7 81%,#ff7cd8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff7cd8',GradientType=0 ); /* IE6-9 */
+}
+
+#header {
+    background: #d0e4f7; /* Old browsers */
+    background: -moz-linear-gradient(top,  #d0e4f7 0%, #73b1e7 24%, #0a77d5 50%, #539fe1 79%, #87bcea 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d0e4f7), color-stop(24%,#73b1e7), color-stop(50%,#0a77d5), color-stop(79%,#539fe1), color-stop(100%,#87bcea)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #d0e4f7 0%,#73b1e7 24%,#0a77d5 50%,#539fe1 79%,#87bcea 100%); /* W3C */
+    
+
+    text-align: center;
+    font-family: Helvetica;
+    width: 400px;
+}
+
+#side{
+    float:left;
+    margin-right: 10px;
+}
+
+#bar {
+    background-color: #B2B8BC;
+    border: solid 5px black;
+    border-radius: 25px;
+}
+
+img {
+  margin-top: 50px;
+  opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
+ }
+
+img:hover
+ {
+  opacity:1.0;
+  filter:alpha(opacity=100);
+}
+
+#frame {
+    margin-left: 250px;
+    
+}
+
+.thing {
+    border: solid 5px black;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 25px;
+    background-color:#B2B8BC;
+}
+
+h2 {
+    margin-top: 5px;
+}
+
