@@ -17,6 +17,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -46,7 +47,6 @@ table {
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
 
 
-
 html {
 	background-image: url("../../backgrounds/squared_metal.png");
 	background-attachment: fixed;
@@ -68,7 +68,7 @@ header {
 	box-shadow: 0px 1px 3px black;
 }
 
-h1, h2, h3, h4, h5, h6, a, footer{
+h1, h2, h3, h4, h5, h6, a, footer, p{
 	font-family: 'PT Sans Narrow', serif;
 }
 
@@ -87,7 +87,7 @@ h2 {
 
 .p {
 	font-size: 20px;
-	font-family: 'PT Serif', serif;
+	
 	text-align: justify;
 }
 
@@ -109,8 +109,7 @@ article {
 }
 
 #main article{
-	width: 85%;
-	float: right;
+	width: 92.5%;
 	margin-bottom: 10px;
 
 }
@@ -159,11 +158,13 @@ a:active {text-decoration: underline;}
 	color: #033103;;
 	padding: .277777778em;
 	margin-bottom: .5em;
+	margin-right: .5em;
 	text-decoration: none;
 	font-size: 24px;
 	background-color: #eaeaed;
 	box-shadow: 1px 1px 3px black;
 	transition: all .2s linear;
+
 }
 
 .btn:hover{
@@ -222,7 +223,6 @@ p {
 		padding-right: 1%
 	}
 
-
 	aside {
 		width: 100%;
 	}
@@ -230,7 +230,6 @@ p {
 	#img_wrapper {
 		width: 40%;
 		float: left;
-	
 	}
 
 	img {
@@ -250,12 +249,7 @@ p {
 		width:59%;
 		margin-top: 0px;
 	}
-
-
 }
-	
-
-
 
 @media screen and (min-width: 771px){
 
@@ -264,7 +258,9 @@ p {
 	}
 
 	#container {
-		width: 713px;
+		min-width: 713px;
+		max-width: 900px;
+		width:80%;
 		margin-left: auto;
 		margin-right: auto;
 
@@ -280,15 +276,10 @@ p {
 		margin-right: 1%
 	}
 
-
-
 	#main {
 		width:59%;
-		max-width: 424.8px;
 		float: right;
 	}
-
-
 
 	footer {
 		clear: both;
