@@ -1,3 +1,7 @@
+
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -66,6 +70,7 @@ header {
 	text-align: center;
 	border-bottom: 1px solid black;
 	box-shadow: 0px 1px 3px black;
+	z-index: 1;
 }
 
 h1, h2, h3, h4, h5, h6, a, footer, p{
@@ -148,9 +153,74 @@ li a {
 
 a:hover {color: #8a0000;}
 
-a:visited {color: #00402B;}
-
 a:active {text-decoration: underline;}
+
+nav li:hover ul { 
+	visibility:visible;  /* This is key for displaying the menus */
+	
+	transition: all .025s linear;
+	}
+
+nav li:hover {
+	background-color:#6a6a6a;
+	transition: all .025s linear;
+}
+
+nav li:hover a {
+	color: #e3f6fe;
+}
+
+nav { 
+	display:block; 
+	background-color: #eaeaed;
+	border-bottom: 1px solid black;
+
+}
+
+nav li { 
+	position:relative; 
+	float:left; 
+	list-style-type:none;
+
+
+}
+
+nav ul:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+nav ul li {padding-bottom: 0px}
+
+nav li a { 
+	display:block; 
+	padding:15px 20px; 
+
+}
+
+.cat {
+	color: #033103;
+	font-size: 20px;
+	border-right: 1px solid black;
+}
+
+nav ul ul { 
+	visibility:hidden; /* This is key for hiding the menu, until the hover pseudoselector above is activated */
+	width:100%; 
+	position:absolute; 
+	left:0; 
+	background:rgba(106,106,106, .95); 
+
+	transition: all .025s linear;
+
+}
+
+nav ul ul li { float:none; }
+
+nav ul ul a { 
+	padding:5px 10px; 
+	color: rgba(0,0,0,0);
+	font-size:14px; 
+}
+
+nav ul ul a:hover { background-color:#555; }
 
 .btn {
 	display: inline-block;
