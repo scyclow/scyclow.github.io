@@ -1,0 +1,57 @@
+<!doctype html>
+<link rel="stylesheet" href="../unit1_projects/stylesheets/week1_technical_blog.css">
+<html>
+	<head>
+		<title>Steve's Tech Blog</title>
+	</head>
+	<body>
+		
+		<div id="header">
+			<div id="tit">
+				<h1>Steve's Tech Blog!</h1>
+			</div>
+
+
+		</div>
+		
+		<div id="sidebar">
+			<div class="sidebar_post">
+				<h2>About me</h2>
+				<p>Hey, my name is Steve! This is a blog that I write. It focuses on technical topics that DBC tells me to write about. I don't like what I originally wrote in this space, but the layout would look stupid if I just took everything out all together. So, this is basically a place holder.</p>
+				<ul>
+					<li><a href="mailto:spike716@gmail.com">Gmail</li>
+					<li><a href="https://github.com/scyclow" target="_blank">GitHub</li>
+					<li><a href="https://twitter.com/StevePikelny" target="_blank">Twitter</li>
+					<li><a href="https://www.linkedin.com/pub/steven-pikelny/27/4b0/16" target="_blank">LinkedIn</li>
+					<li><a href="https://www.google.com/search?q=steven+pikelny&oq=steven+pikelny&aqs=chrome..69i57j69i61l3j0.5094j0j4&sourceid=chrome&es_sm=91&ie=UTF-8" target="_blank">Google Me</a></li>
+
+				</ul>
+			</div>
+		</div>
+
+		<div id="frame">
+			<div id="content">
+				<div class="post">
+					<h3>What does Map do?</h3>
+					<p>Skimming through the Ruby docs this week, one thing that stands out is the sheer number of Ruby methods. Having some background in Python, I find this somewhat overwhelming and confusing. Are all of these methods actually useful? </br></br>
+					The short answer is probably a resounding no. For example, I really don't see any reason whatsoever to use Array#index over bracket syntax. In any case, Enumerable#map is one of those metods that happens to be incredibly useful, and ruby's use of blocks makes it all the more pleasent.</br></br>
+					So, what is Enumerable#map? Map takes an array and a block as an input; it iterates over the array, passing each element as a variable to the block. It then spits out a new array, where each element from the original array has been transformed by the block. </br></br>
+					For example, let's say you have the following array: </br></br>
+					a = [0,1,2,3,4,5,6,7,8,9,10]</br></br>
+					and you want to multiply all even numbers by 2. Using map, all you'd have to do is:</br></br>
+					a.map {|x| x*2 if x.even?}</br></br>
+					Simple as that. Of course, map sans exclamation point is non-destructive. In other words, it returns a new array that meets the desired criteria. In other other words, it copies the old array, and modifies the new array. If you want to <em>actually</em> modify the existing array, just use Enumerable#map!. </br></br>
+					Similarly, Enumerable#collect does the exact same thing as Enumerable#map. 
+					</p>
+				</div>
+			</div>
+			<div id="footer">
+				<p>I have reserved absolutely no rights here, but would really appreciate it if you didn't rip me off. Thanks.</p>
+			</div>
+		</div>
+
+
+	</body>
+
+
+</html>
