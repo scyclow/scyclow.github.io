@@ -14,6 +14,7 @@ body {
 
 #header {
 	position: fixed;
+	z-index: 1;
 	width: 100%;
 	height: 100px;
 	top: 0px;
@@ -84,6 +85,16 @@ p {
 	top: 1px;
 	border-bottom: 1px solid black;
 }
+
+.code {
+	background-color: #26272b;
+	font-family: "Inconsolata";
+	color: #01C0ff;
+	padding-left: 1em;
+	margin: 1em;
+}
+
+script {z-index: -1}
 
 a:link {color: rgb(175,0,0);}
 a:visited {color: rgb(0,15,90);}
