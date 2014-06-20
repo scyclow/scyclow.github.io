@@ -181,18 +181,22 @@ nav li {
 	position:relative; 
 	float:left; 
 	list-style-type:none;
-
-
 }
 
 nav ul:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
 
-nav ul li {padding-bottom: 0px}
+nav ul li {
+	padding-bottom: 0px;
+	border-bottom: 1px solid black;
+}
+
+nav ul li li {
+	border-bottom: 0px;
+}
 
 nav li a { 
 	display:block; 
 	padding:15px 20px; 
-
 }
 
 .cat {
@@ -320,6 +324,7 @@ p {
 		width:59%;
 		margin-top: 0px;
 	}
+
 }
 
 @media screen and (min-width: 771px){
@@ -350,6 +355,10 @@ p {
 	#main {
 		width:59%;
 		float: right;
+	}
+
+	nav ul li {
+	border-bottom: 0px;
 	}
 
 	footer {
