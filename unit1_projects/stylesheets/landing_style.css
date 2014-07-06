@@ -159,6 +159,12 @@ nav li:hover ul {
 	transition: all .025s linear;
 	}
 
+nav li:active ul { 
+	visibility:visible;  /* This is key for displaying the menus */
+	
+	transition: all .025s linear;
+	}
+
 nav li:hover {
 	background-color:#6a6a6a;
 	transition: all .025s linear;
