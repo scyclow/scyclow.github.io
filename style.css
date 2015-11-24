@@ -17,22 +17,16 @@ body {
   font-family: 'Inconsolata', sans-serif;
 }
 
-a {
+a, a * {
   text-decoration: none;
 }
 
 a:hover {
   background-color: #FFA500;
-  text-decoration: underline;
-}
-
-::selection {
-  color: #FFFFFF;
-  background-color: #000000;
 }
 
 .header {
-  padding: 0.5em;
+  padding: 1em;
   text-align: center;
   line-height: 1.4;
 }
@@ -48,12 +42,16 @@ a:hover {
 #content {
   max-width: 1000px;
   margin: auto;
-  margin-bottom: 50px;
+  margin-bottom: 2.5em;
 }
 
 section {
-  margin-top: 2em;
+  margin-top: 1em;
   max-width: 800px;
+}
+
+.code {
+  margin-top: 2em;
 }
 
 .project {
@@ -90,5 +88,22 @@ section {
 
 .filler h2 {
   font-size: 1.3em;
+}
+
+::selection, .night-mode, .night-mode a {
+  color: #F5F5F5;
+  background-color: #333333;
+}
+
+.night-mode a, .night-mode a * {
   text-decoration: underline;
+}
+
+.night-mode a:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.night-mode h2 {
+  text-decoration: none;
 }
