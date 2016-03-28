@@ -32,8 +32,13 @@ a:hover {
   line-height: 1.4;
 }
 
-.header h1 {
+h1 {
   font-size: 2.2em;
+}
+
+h2 {
+  font-size: 1.8em;
+  text-decoration: underline;
 }
 
 .header .header-links {
@@ -81,7 +86,7 @@ section {
   width: 100%;
 }
 
-.filler h2 {
+.filler h3 {
   font-size: 1.3em;
 }
 
@@ -97,8 +102,4 @@ section {
 .night-mode a:hover {
   background-color: #FFFFFF;
   color: #000000;
-}
-
-.night-mode h2 {
-  text-decoration: none;
 }
