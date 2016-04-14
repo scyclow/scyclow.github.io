@@ -12,6 +12,10 @@
        url('../fonts/Inconsolata-regular/Inconsolata-regular.svg#Inconsolata') format('svg');
 }
 
+body {
+  background-color: #FFFFFF;
+}
+
 #error {
   position: fixed;
   width: 100%;
