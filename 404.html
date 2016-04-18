@@ -15,7 +15,9 @@
     content="error, 404, page, not, found, god, sex, power, the, love, wealth, happiness"
   >
   <link rel="stylesheet" type="text/css" href="./reset.css">
-  <link rel="stylesheet" type="text/css" href="error/styles.css">
+  <style>
+    @font-face{font-family:Inconsolata;font-weight:400;font-style:normal;src:url(fonts/Inconsolata-regular/Inconsolata-regular.eot);src:url(fonts/Inconsolata-regular/Inconsolata-regular.eot?#iefix) format('embedded-opentype'),local('Inconsolata'),local('Inconsolata-regular'),url(fonts/Inconsolata-regular/Inconsolata-regular.woff2) format('woff2'),url(fonts/Inconsolata-regular/Inconsolata-regular.woff) format('woff'),url(fonts/Inconsolata-regular/Inconsolata-regular.ttf) format('truetype'),url(fonts/Inconsolata-regular/Inconsolata-regular.svg#Inconsolata) format('svg')}body{background-color:#FFF}#error{position:fixed;width:100%;height:100%}#error,#error-content{display:flex;flex-direction:column;align-items:center;justify-content:center}#error-content{font-family:Inconsolata,sans-serif;font-size:40px;text-transform:uppercase;padding:.5em;line-height:1.5;color:rgba(255,255,255,.8);background-color:rgba(0,0,0,.8)}.code{font-size:60px}.message{text-align:center}
+  </style>
 </head>
 
 <body>
@@ -28,7 +30,9 @@
     </div>
     <canvas id="canvas"></canvas>
   </div>
-  <script src="error/error.js"></script>
+  <script>
+    !function(e){function n(i){if(t[i])return t[i].exports;var o=t[i]={exports:{},id:i,loaded:!1};return e[i].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var t={};return n.m=e,n.c=t,n.p="",n(0)}([function(e,n,t){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}function o(e){e.clearRect(0,0,window.innerWidth,window.innerHeight);for(var n=window.innerWidth,t=window.innerHeight,i=0;n>i;i+=v)for(var o=0;t>o;o+=v)Math.random()>.5&&e.fillRect(i,o,v,v)}function r(e){e.fillStyle="#000000",setInterval(function(){o(e)},15)}function u(e,n){if(e.getContext){var t=e.getContext("2d");n(t)}}var c=t(3),a=t(1),d=i(a),f=t(2),l=i(f);(0,c.onResize)(c.setHeight),(0,c.setHeight)(window.innerWidth,window.innerHeight);var s=3,v=s;(0,l["default"])(function(e,n){v=Math.floor(s+n/80)});var w=document.getElementById("canvas");u(w,r),(0,d["default"])(),console.log("Source: https://github.com/scyclow/error404")},function(e,n){"use strict";function t(){var e=new(window.AudioContext||window.webkitAudioContext),n=e.createGain(),t=e.createBiquadFilter(),i=e.createOscillator();i.connect(t),t.connect(n),n.connect(e.destination),n.gain.value=.0025,t.type="peaking",t.frequency.value=250,t.gain.value=35,i.type="square",i.detune.value=100,i.frequency.value=25,i.start(0);var o=0,r=10;return setInterval(function(){t.frequency.value+=r,(t.frequency.value>=1e3||t.frequency.value<=250)&&(r*=-1),t.frequency.value+=r,o++},100)}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=t},function(e,n){"use strict";function t(e){document.onmousemove=function(n){var t=n.clientX+window.pageXOffset,i=n.clientY+window.pageYOffset;e(t,i)}}Object.defineProperty(n,"__esModule",{value:!0}),n["default"]=t},function(e,n){"use strict";function t(e){window.onresize=function(){var n=window.innerWidth,t=window.innerHeight;e(n,t)}}function i(e,n){canvas.width=e,canvas.height=n}Object.defineProperty(n,"__esModule",{value:!0}),n.onResize=t,n.setHeight=i}]);
+  </script>
 </body>
 
 </html>
