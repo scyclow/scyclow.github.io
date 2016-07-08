@@ -21,7 +21,7 @@ a, a * {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus {
   background-color: #FFA500;
 }
 
@@ -38,7 +38,6 @@ h1 {
 
 h2 {
   font-size: 1.8em;
-  text-decoration: underline;
 }
 
 .header .header-links {
@@ -99,7 +98,7 @@ section {
   text-decoration: underline;
 }
 
-.night-mode a:hover {
+.night-mode a:hover, .night-mode a:focus {
   background-color: #FFFFFF;
   color: #000000;
 }
