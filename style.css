@@ -19,17 +19,26 @@ body {
 
 a, a * {
   text-decoration: none;
+  color: #0000EE;
+  cursor: pointer;
+}
+
+a:visited {
+  color: #551A8B;
 }
 
 a:hover, a:focus {
   background-color: #FFA500;
 }
 
-.header {
+.header, .footer {
   padding: 2em;
-  padding-bottom: 0;
   line-height: 1.4;
   text-align: center;
+}
+
+.header {
+  padding-bottom: 0;
 }
 
 h1 {
@@ -40,18 +49,25 @@ h2 {
   font-size: 30px;
 }
 
-.header .header-links {
+.header .header-links{
   font-size: 24px;
 }
 
-#content {
+.footer .footer-links {
+  font-size: 21px;
+}
+
+.content {
   max-width: 920px;
   margin: auto;
+}
+
+.selection-content {
   padding: 2.5em;
   padding-bottom: 0;
 }
 
-section {
+.projects, .filler {
   max-width: 780px;
   margin-bottom: 3.5em;
 }
@@ -88,7 +104,10 @@ section {
   line-height: 1.3;
 }
 
-::selection, .night-mode, .night-mode a {
+::selection,
+.night-mode,
+.night-mode a,
+.night-mode a:visited {
   color: #F5F5F5;
   background-color: #333333;
 }
