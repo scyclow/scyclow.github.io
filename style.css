@@ -31,14 +31,11 @@ a:hover, a:focus {
   background-color: #FFA500;
 }
 
-.header, .footer {
+.header {
   padding: 2em;
+  padding-bottom: 0;
   line-height: 1.4;
   text-align: center;
-}
-
-.header {
-  padding-bottom: 0;
 }
 
 h1 {
@@ -51,10 +48,6 @@ h2 {
 
 .header .header-links{
   font-size: 24px;
-}
-
-.footer .footer-links {
-  font-size: 21px;
 }
 
 .content {
@@ -107,16 +100,20 @@ h2 {
 ::selection,
 .night-mode,
 .night-mode a,
+.night-mode a *,
 .night-mode a:visited {
   color: #F5F5F5;
   background-color: #333333;
 }
 
-.night-mode a, .night-mode a * {
+.night-mode a,
+.night-mode a * {
   text-decoration: underline;
 }
 
-.night-mode a:hover, .night-mode a:focus {
+.night-mode a:hover,
+.night-mode a:hover *,
+.night-mode a:focus {
   color: #000000;
   background-color: #FFFFFF;
 }
