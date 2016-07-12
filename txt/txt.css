@@ -4,9 +4,6 @@
   display: inline;
 }
 
-.small-header .text-content {
-  /*width: 100%;*/
-}
 .small-header h1 {
   font-size: 28px;
 }
@@ -45,7 +42,7 @@ li.post .date {
 
 .text {
   font-family: 'PT Serif', Georgia, serif;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #222222;
 }
 
@@ -54,7 +51,7 @@ li.post .date {
 }
 
 .text p {
-  padding: 1em 0;
+  padding: 0.7em 0;
   font-size: 21px;
 }
 
