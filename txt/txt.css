@@ -4,7 +4,7 @@
   display: inline;
 }
 
-.small-header h1 {
+.small-header h2 {
   font-size: 28px;
 }
 
@@ -13,13 +13,15 @@
 }
 
 .small-header li a {
-  padding: 0.5em;
+  padding: 1em 0.45em;
   font-size: 20px;
 }
 
 .text-content {
-  max-width: 750px;
+  max-width: 86.5%;
+  width: 700px;
   margin: auto;
+
   padding: 1.25em;
 }
 
@@ -42,7 +44,7 @@ li.post .date {
 
 .text {
   font-family: 'PT Serif', Georgia, serif;
-  line-height: 1.8;
+  line-height: 2.1;
   color: #222222;
 }
 
@@ -61,7 +63,7 @@ li.post .date {
   }
 
   .small-header ul {
-    padding-top: 0.3em;
+    padding-top: 0.4em;
   }
 
   .small-header li a {
@@ -74,9 +76,5 @@ li.post .date {
 
   .text-header {
     font-size: 36px;
-  }
-
-  .text-content {
-    width: 86.5%
   }
 }
