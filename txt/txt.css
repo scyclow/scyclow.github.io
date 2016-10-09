@@ -12,6 +12,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-size: 28px;
 }
 
+.small-header a *,
+.night-mode .small-header a h2,
+.night-mode .small-header a {
+  text-decoration: none;
+}
+
+.small-header a:hover * {
+  background-color: #f5f5f5;
+}
+
+.night-mode .small-header a:hover * {
+ /*background-color: #333;*/
+}
+
 .small-header ul {
   float: right;
 }
