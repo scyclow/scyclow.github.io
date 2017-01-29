@@ -60,7 +60,7 @@
         </div>
 
         <div class="project-description">
-          <span class="note">Notes:</span> App I made to sell things at a party. Mobile responsive, data updates in real time, useable by drunk people. I built it quickly, so there are a few bugs.
+          <span class="note">Notes:</span> App I made to sell things at a party. Mobile responsive, data updates in real time, useable by drunk people.
           <br>
           <span class="note">Tools:</span> React, Redux, ImmutableJS, FireBase, Webpack, Babel
         </div>
@@ -98,7 +98,7 @@
         </div>
 
         <div class="project-description">
-          <span class="note">Notes:</span> Coming Soon.
+          <span class="note">Notes:</span> Splash page for FastCashMoneyPlus.biz redesign.
           <br>
           <span class="note">Tools:</span> React, Redux, Webpack, Babel, HTML5 Audio
         </div>
@@ -151,6 +151,22 @@
 
         <div class="project-description">
           <span class="note">Notes:</span> Transforms text into vague nonsense using a markov chain. I skimped on the UI.
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <a target="_blank" class="project-link" href="https://github.com/scyclow/audioapp">
+            Music Player
+          </a>
+          <br>
+          <a target="_blank" class="project-src" href="https://github.com/scyclow/audioapp">src</a>
+        </div>
+
+        <div class="project-description">
+          <span class="note">Notes:</span> A quick tool to play music with HTML5 Audio. There's syntax documentaion at the bottom of the page, and a sample tune logged to the console if you open up dev tools.
+          <br>
+          <span class="note">Tools:</span> HTML5 Audio
         </div>
       </article>
 
@@ -210,7 +226,7 @@
         </div>
 
         <div class="project-description">
-          <span class="note">Notes:</span> Not mobile responsive. Works on modern browsers most of the time. Press -/+ keys to decrease/increase sensitivity. Press ` to hide control panel. [WIP]
+          <span class="note">Notes:</span> This doesn't actually work because I'm hosting it at a non-https url, and it uses a microphone input to create visual patterns.
           <br>
           <span class="note">Tools:</span> HTML5 Audio
         </div>
@@ -227,8 +243,6 @@
 
         <div class="project-description">
           <span class="note">Notes:</span> May induce nausea.
-          <br>
-          <span class="note">Tools:</span> Math.random
         </div>
       </article>
 
@@ -284,7 +298,7 @@
         </div>
 
         <div class="project-description">
-          <span class="note">Notes:</span> Debt calculator that settles all debts between group members in fewest number of transactions. My first ever Angular app. Don't judge.
+          <span class="note">Notes:</span> Debt calculator that settles all debts between group members in fewest number of transactions. My first ever Angular app.
           <br>
           <span class="note">Tools:</span> Angular
         </div>
@@ -292,7 +306,7 @@
 
       <article class="project">
         <div class="project-header">
-          <a target="_blank" class="project-link" href="https://scyclow.github.io/chore-reminder">
+          <a target="_blank" class="project-link" href="https://chore-reminder.herokuapp.com/">
             Mr. Clean
           </a>
           <br>
@@ -300,9 +314,9 @@
         </div>
 
         <div class="project-description">
-          <span class="note">Notes:</span> Automatically texts me and my roommates on a weekly basis to remind one person to clean the apartment. Users text confirmations, and request reminders.
+          <span class="note">Notes:</span> Automatically texts my roommates and I on a predetermined schedule to remind an on-call person to clean the apartment. It has an SMS interface where users can confirm cleanings, and send reminders to the on-call person. I was too lazy to set up a new DB for this, so I'm using the FastCashMoneyPlus SDK as a microservice.
           <br>
-          <span class="note">Tools:</span> Twilio, Heroku, Express
+          <span class="note">Tools:</span> Twilio, Heroku, Express, <a target="_blank" class="project-src" href="https://fastcashmoneyplus.herokuapp.com/api/MrClean/getWeek">FastCashMoneyPlus SDK</a>
         </div>
       </article>
     </section>
@@ -365,7 +379,7 @@
         </div>
 
         <div class="project-description">
-          Learned ES6 by coding the rules of Go.
+          Learned ES6 and graph traversal by coding the rules of Go.
         </div>
       </article>
 
@@ -381,7 +395,7 @@
     <section class="filler">
       <h2>Buzz words</h2>
       <p>
-        JavaScript, React, Redux, Node, Angular, Flow, TypeScript, MongoDB, Jasmine, HTML5, SCSS, Webpack, Babel, Gulp, Git, Bash, Ruby, Rails, Python, SICP, Elm, Web Art, Closed-End Fund investing
+        JavaScript, React, Redux, Node, Angular, Flow, TypeScript, MongoDB, Jasmine, HTML5, SCSS, Webpack, Babel, Gulp, Git, Bash, Ruby, Rails, Python, SICP, Elm, Web Art, FinTech, AI, Closed-End Fund investing
       </p>
     </section>
 
@@ -396,7 +410,6 @@
 
 <script type="text/javascript">
   var hours = new Date().getHours();
-  if (hours < 5 || hours > 22)
-    document.body.className = 'night-mode';
+  if (hours < 5 || hours > 22) document.body.className = 'night-mode';
 </script>
 </html>
