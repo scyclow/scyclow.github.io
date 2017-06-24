@@ -1,63 +1,125 @@
+<!DOCTYPE html>
+
 <html>
-  <header></header>
+  <header>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <META http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>something</title>
+
+    <style>
+      body {
+        background-color: black;
+      }
+
+      .container-container {
+        height: 100vh;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .position {
+        position: absolute;
+        transition: 2000ms;
+        transition-timing-function: cubic-bezier(0.43, 0.15, 0.57, 0.85);
+      }
+
+      .box {
+        color: white;
+        border-radius: 10px;
+        position: absolute;
+        border: 4px solid;
+      }
+
+      .thin {
+        border: 2px solid;
+      }
+
+      .size-1 {
+        height: 50px;
+        width: 50px;
+      }
+      .size-2 {
+        height: 100px;
+        width: 100px;
+      }
+      .size-3 {
+        height: 200px;
+        width: 200px;
+      }
+      .size-4 {
+        height: 375px;
+        width: 375px;
+      }
+      .size-5 {
+        height: 400px;
+        width: 400px;
+      }
+      .size-6 {
+        height: 500px;
+        width: 550px;
+      }
+    </style>
+  </header>
   <body>
     <div class="container-container container">
-      <div class="container">
-        <div class="hell" style="height: 50px; width:50px;"></div>
-        <div class="hell" style="height: 100px; width:100px"></div>
-        <div class="hell thin" style="height: 200px; width:200px;"></div>
-        <div class="hell" style="height: 400px; width:400px"></div>
-        <div class="hell thin" style="height: 370px; width:370px;"></div>
+      <div class="position container" style="margin-top: 0">
+        <div class="box size-1"></div>
+        <div class="box size-2"></div>
+        <div class="box thin size-3"></div>
+        <div class="box thin size-4"></div>
+        <div class="box size-5"></div>
+        <div class="box size-6"></div>
       </div>
 
-      <div class="container" style="top: 45%">
-        <div class="hell thin" style="height: 50px; width:50px"></div>
-        <div class="hell" style="height: 100px; width:100px"></div>
-        <div class="hell" style="height: 200px; width:200px"></div>
-        <div class="hell thin" style="height: 400px; width:400px;"></div>
-        <div class="hell thin" style="height: 370px; width:370px"></div>
+      <div class="position container" style="top: 45%">
+        <div class="box thin size-1"></div>
+        <div class="box size-2"></div>
+        <div class="box size-3"></div>
+        <div class="box thin size-4"></div>
+        <div class="box thin size-5"></div>
+        <div class="box thin size-6"></div>
       </div>
 
-      <div class="container" style="left: 45%">
-        <div class="hell thin" style="height: 50px; width:50px"></div>
-        <div class="hell" style="height: 100px; width:100px"></div>
-        <div class="hell" style="height: 200px; width:200px"></div>
-        <div class="hell thin" style="height: 400px; width:400px;"></div>
-        <div class="hell thin" style="height: 370px; width:370px"></div>
+      <div class="position container" style="left: 45vw">
+        <div class="box thin size-1"></div>
+        <div class="box size-2"></div>
+        <div class="box size-3"></div>
+        <div class="box thin size-4"></div>
+        <div class="box thin size-5"></div>
+        <div class="box thin size-6"></div>
       </div>
 
-      <div class="container" style="right: 45%">
-        <div class="hell thin" style="height: 50px; width:50px"></div>
-        <div class="hell" style="height: 100px; width:100px"></div>
-        <div class="hell" style="height: 200px; width:200px"></div>
-        <div class="hell thin" style="height: 400px; width:400px;"></div>
-        <div class="hell thin" style="height: 370px; width:370px"></div>
+      <div class="position container" style="right: 45vw">
+        <div class="box thin size-1"></div>
+        <div class="box size-2"></div>
+        <div class="box size-3"></div>
+        <div class="box thin size-4"></div>
+        <div class="box thin size-5"></div>
+        <div class="box thin size-6"></div>
       </div>
     </div>
   </body>
 
-  <style>
-  body { background-color: black }
-    .container-container {
-      width: 100vw;
-      height: 100vh;
-    }
-    .container {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  <script>
+    const sections = document.getElementsByClassName('position')
 
-    .hell {
-      color: white;
-      border-radius: 10px;
-      position: absolute;
-      border: 4px solid;
-    }
+    let contracted = true;
+    function setStyles() {
+      sections[0].style['margin-top'] = contracted ? '30px' : '0px'
 
-    .thin {
-      border: 2px solid;
+      sections[1].style['top'] = contracted ? '52%' : '48%'
+
+      sections[2].style['left'] = contracted ? '52%' : '48%'
+
+      sections[3].style['right'] = contracted ? '52%' : '48%'
+
+      contracted = !contracted
     }
-  </style>
+    setTimeout(setStyles)
+    setInterval(setStyles, 2000)
+  </script>
 </html>
