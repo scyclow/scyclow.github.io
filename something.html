@@ -23,8 +23,8 @@
 
       .position {
         position: absolute;
-        transition: 2000ms;
-        transition-timing-function: cubic-bezier(0.43, 0.15, 0.57, 0.85);
+        transition: 1500ms;
+        transition-timing-function: cubic-bezier(0.46, 0.05, 0.51, 0.95);
       }
 
       .box {
@@ -101,25 +101,27 @@
         <div class="box thin size-5"></div>
         <div class="box thin size-6"></div>
       </div>
+
     </div>
   </body>
 
   <script>
     const sections = document.getElementsByClassName('position')
+    const grows = document.getElementsByClassName('grow')
 
     let contracted = true;
     function setStyles() {
-      sections[0].style['margin-top'] = contracted ? '30px' : '0px'
+      sections[0].style.marginTop = contracted ? '40px' : '0px'
 
-      sections[1].style['top'] = contracted ? '52%' : '48%'
+      sections[1].style.top = contracted ? '52%' : '48%'
 
-      sections[2].style['left'] = contracted ? '52%' : '48%'
+      sections[2].style.left = contracted ? '52%' : '48%'
 
-      sections[3].style['right'] = contracted ? '52%' : '48%'
+      sections[3].style.right = contracted ? '52%' : '48%'
 
       contracted = !contracted
     }
     setTimeout(setStyles)
-    setInterval(setStyles, 2000)
+    setInterval(setStyles, 1500)
   </script>
 </html>
