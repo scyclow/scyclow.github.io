@@ -37,7 +37,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 .text-content {
   max-width: 86.5%;
-  width: 700px;
+  width: 750px;
   margin: auto;
 
   padding: 1.25em;
@@ -72,6 +72,23 @@ li.post .date {
   color: #333333;
 }
 
+code {
+  color: #000000;
+  background-color: #fffdeb;
+  font-size: 16px;
+  padding: 4px;
+  font-family: 'Inconsolata', sans-serif;
+  border: 1px solid #ffffff
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
 .night-mode .text p,
 .night-mode .text .text-header {
   color: #F5F5F5;
@@ -92,6 +109,10 @@ li.post .date {
 
   .text p {
     font-size: 18px;
+  }
+
+  code {
+    font-size: 14px;
   }
 
   .text-header {
