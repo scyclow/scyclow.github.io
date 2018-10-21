@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Cube</title>
+  <style>
+
+    * {
+      transform-style: preserve-3d;
+    }
+
+    body {
+      background-color: black
+    }
+    .side {
+      width: 600px;
+      height: 600px;
+      position: absolute;
+      /*background-color: blue;*/
+      opacity: 0.8;
+      /*border: 2px solid black;*/
+      border-radius: 300px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 95vh;
+      animation: Spin 8000ms linear infinite;
+      /*margin-top: 100px;*/
+      /*margin-left: 100px;*/
+
+      /*transform: rotate3d(1, 1, 1, 270deg);*/
+    }
+
+
+    @keyframes Spin {
+      0% {
+        transform: rotate3d(0, 0, 0, 0deg);
+        /*margin-top: 100px;*/
+        /*margin-left: 100px;*/
+      }
+
+      50% {
+        /*margin-top: 200px;*/
+        /*margin-left: 200px;*/
+
+      }
+
+      100% {
+        /*margin-left: 100px;*/
+        /*margin-top: 100px;*/
+        transform: rotate3d(1, 1,1, 360deg);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container" style="transform: translateZ(-10px)">
+  <div class="side" style="transform: translateZ(0px); background-color: #ff0000"></div>
+   <div class="side" style="transform: rotateY(180deg) translateZ(0px); background-color: #00ffff"></div>
+  <div class="side" style="transform: rotateY(90deg) translateZ(0px); background-color: #ffff00"></div>
+  <div class="side" style="transform: rotateY(270deg) translateZ(0px); background-color: #0000ff"></div>
+  <div class="side" style="transform: rotateX(90deg) translateZ(0px); background-color: #00ff00"></div>
+  <div class="side" style="transform: rotateX(-90deg) translateZ(0px); background-color: #ff00ff"></div>
+  <!--
+-->
+</div>
+</body>
+</html>
