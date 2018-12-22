@@ -152,8 +152,8 @@ $submit.addEventListener('click', async () => {
       <div style="display: flex; align-items: center; justify-content: space-between; width: 120px">
         <div style="display: inline-block">
           <div class="loading loading-a" style="animation-delay: 0ms"></div>
-          <div class="loading loading-a" style="animation-delay: 100ms"></div>
-          ${attackerArmies > 2 ? `<div class="loading loading-a" style="animation-delay: 200ms"></div>` : ''}
+          ${attackerArmies > 2 ? `<div class="loading loading-a" style="animation-delay: 100ms"></div>` : ''}
+          ${attackerArmies > 3 ? `<div class="loading loading-a" style="animation-delay: 200ms"></div>` : ''}
         </div>
         <div style="display: inline-block">
           <div class="loading loading-d" style="animation-delay: 0ms;"></div>
@@ -231,9 +231,10 @@ function getDefenderLimit(defender, limit) {
   )
 }
 
-function getAttackerLimit(defender, limit) {
+function getAttackerLimit(attacker, defender, limit) {
+  const cushion = defender === 1 && attacker !== 1 ? 0 : 1
   return limit
-    ? limit + (defender === 1 ? 0 : 1)
+    ? limit + cushion
     : 1
 }
 
@@ -249,7 +250,7 @@ function offensiveRoll(attacker, defender, attackerLimit=1, defenderLimit=0) {
   console.log('========================')
   let rolls = 0
   while (
-    attacker > getAttackerLimit(defender, attackerLimit) &&
+    attacker > getAttackerLimit(attacker, defender, attackerLimit) &&
     defender > getDefenderLimit(defender, defenderLimit) &&
     defender > 0 &&
     attacker > 1
