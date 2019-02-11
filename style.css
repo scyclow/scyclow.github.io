@@ -98,6 +98,11 @@ ul {
   list-style: circle;
 }
 
+.depricated {
+  font-size: 18px;
+  color: #d60000;
+}
+
 ::selection {
   color: #F5F5F5;
   background-color: #333333;
