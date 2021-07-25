@@ -2,14 +2,14 @@
   font-family: 'Inconsolata';
   font-weight: 400;
   font-style: normal;
-  src: url('/fonts/Inconsolata-regular/Inconsolata-regular.eot');
-  src: url('/fonts/Inconsolata-regular/Inconsolata-regular.eot?#iefix') format('embedded-opentype'),
+  src: url('./fonts/Inconsolata-regular/Inconsolata-regular.eot');
+  src: url('./fonts/Inconsolata-regular/Inconsolata-regular.eot?#iefix') format('embedded-opentype'),
        local('Inconsolata'),
        local('Inconsolata-regular'),
-       url('/fonts/Inconsolata-regular/Inconsolata-regular.woff2') format('woff2'),
-       url('/fonts/Inconsolata-regular/Inconsolata-regular.woff') format('woff'),
-       url('/fonts/Inconsolata-regular/Inconsolata-regular.ttf') format('truetype'),
-       url('/fonts/Inconsolata-regular/Inconsolata-regular.svg#Inconsolata') format('svg');
+       url('./fonts/Inconsolata-regular/Inconsolata-regular.woff2') format('woff2'),
+       url('./fonts/Inconsolata-regular/Inconsolata-regular.woff') format('woff'),
+       url('./fonts/Inconsolata-regular/Inconsolata-regular.ttf') format('truetype'),
+       url('./fonts/Inconsolata-regular/Inconsolata-regular.svg#Inconsolata') format('svg');
 }
 
 body {
@@ -58,11 +58,11 @@ h2 {
 
 .projects, .filler {
   max-width: 780px;
-  margin-bottom: 3.5em;
+  margin-bottom: 4em;
 }
 
 .project {
-  padding: 2em 0;
+  padding: 1.25em 0;
   line-height: 1.3;
 }
 
@@ -101,6 +101,33 @@ ul {
 .depricated {
   font-size: 18px;
   color: #d60000;
+}
+
+.cta {
+  display: inline-block;
+  padding: 0.5em;
+  border: 2px dashed;
+  text-align: center;
+}
+
+.dashed {
+  margin-top: 2em;
+  padding: 1em;
+  border: 2px dashed;
+}
+
+.asterisk {
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.asterisk-note {
+  margin-top: 1em;
+  font-size: 0.75em;
+}
+
+strong {
+  text-shadow: 0.5px 0.5px;
 }
 
 ::selection {
