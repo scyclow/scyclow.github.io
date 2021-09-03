@@ -1,0 +1,105 @@
+<DOCTYPE! html>
+<html>
+
+<head>
+  <title>
+    ERC20 Pre-Mint Retro
+  </title>
+  <META charset="UTF-8">
+  <META name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="../reset.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="./txt.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+</head>
+
+<style>
+  ol, ul {
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+
+  li {
+    font-size: 1.25em;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+</style>
+
+
+<body>
+  <nav class="small-header">
+    <div class="text-content">
+      <a href="/"><h2>Steve Pikelny</h2></a>
+      <ul class="header-links">
+        <li><a href="/txt/">Back</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="content text-content">
+    <section>
+      <article class="text">
+        <h1 class="text-header">
+          ERC20 Pre-Mint Retro
+        </h1>
+
+
+        <p>In 2018 I launched a project called <a href="http://fastcashmoneyplus.biz" target="_blank">FastCashMoneyPlus.biz</a>, which consists of an ERC20 token and a scammy-looking website that is intentionally very difficult to navigate. A handful of friends and internet strangers bought some in 2018 (more on that later), but the contract more or less sat around for three years without any activity whatsoever. Once I started making NFTs earlier this year I handed out the occasional FastCash token to collectors for shits and giggles. So when I was preparing for my drop this week I thought it would be fun to allow people to mint Fake Internet Money with FastCash. I had three goals for this:</p>
+
+        <ol>
+          <li>I had no idea what the clearing price for my DA would be, but I wanted to give collectors of my work an opportunity to mint FIM at a reasonable price. So I figured if they were willing to put the time in to jump through a lot of stupid hoops then they should be able to get a mint.</li>
+          <li>I wanted to funnel people through my previous work. I put a lot of energy into that website, but most of its visitors didn't have an incentive to do much exploring. On top of being a more receptive crowd, this week's visitors had a really strong incentive to interact with the website in the way I had originally hoped. I also thought that it would be an overall fun experience for people, and would compliment whichever mint they ended up with.</li>
+          <li>I thought it would be a fun opportunity to brush up on my Solidity.</li>
+        </ol>
+
+        <p>The plan was:</p>
+        <ul>
+          <li>Announce that people could mint Fake Internet Money with FASTCASH (which currently costs 45.5ETH)</li>
+          <li>Imply there was a way to get FASTCASH at a deep discount</li>
+          <li>Add a hidden popup that directed visitors to a hidden page</li>
+          <li>Allow them to purchase FASTCASH at 0.25 ETH on that page.</li>
+          <li>Deploy <a href="https://etherscan.io/address/0x31004adcec5371f102e7fba3c2485548324787fe#code" target="_blank">a small contract</a> that would hold 100 FASTCASH in escrow and split payments between art blocks, Give Directly, and myself. For anyone interested, here is the contract:</li>
+        </ul>
+
+
+        <p>On the upside, it went really well overall! I accomplished my three goals, people by and large had a lot of fun with it, and it was nice to watch the early mints come in at a nice casual pace. </p>
+
+        <p>On the downside, there were a number of things I wasn't quite anticipating:</p>
+        <ul>
+          <li>Even before I announced the discount fastcash sale, I fielded a loooooot of questions from people asking about fastcash. I also got a loooot of questions after the discount sale ended. It was mostly funny, but got annoying after a while. Despite conducting the sale in a sort of confusing way, allowing minting with a random ERC20 token is pretty non-standard for art blocks drops, so when people see it they will probably be confused.</li>
+          <li>A LOT of people saw the button on my project page that said `APPROVE FASTCASH`, and clicked it without understanding what it did. As you can see on the contract's etherscan page, which contains a rich history of three years' worth of transactions... probably 90% of the transactions are from people approving fastcash they didn't have. In all, I think people must have burnt ~7 ETH in gas on transactions that didn't do anything 😬. </li>
+          <li>I really wasn't anticipating how popular this would be, and made the mistake of publishing the source code on etherscan. I did this because I was too lazy to figure out how to interact with the contract directly, and etherscan has a nice interface for doing this. I almost immediately got a DM from someone who was reading the source code and asking questions about it. Then a half hour after I published the contract I unlocked it for 5 minutes to test out the workflow. Either that same person or multiple people were buying directly from the contract. Originally I was going to leave the contract unlocked, and people would buy FASTCASH whenever they got to the end. But I was afraid that everything would be bought up before anyone got there through the website. So I called a last minute audible and announced that the page existed, but that you wouldn't be able to buy it for </li>
+        </ul>
+
+
+        <p>There were also a few issues that were very specific to my project:</p>
+        <ul>
+          <li>A lot of people were really confused by my confusing website and didn't understand what was going on at all. Some people bought a non-insignificant amount of fastcash at full price. One person bought 0.03 FASTCASH for 1.6 ETH 🤦‍♂️. I ended up refunding some of these transactions. I also had to explain to a lot of people that there was no fastcash left after the discount sale completed.</li>
+          <li>I trackd down one guy who bought 40 FASTCASH back in 2018, and before the pre mint he agreed to only mint 2. He ended up minting 15, and was preparing to mint all 40 before I paused the project. This is a whole other story though 😄</li>
+        </ul>
+
+        <p>So what I learned is:</p>
+        <ul>
+          <li>Be very very very communicative about the ERC20 token.</li>
+          <li>Do not publish the sales contract source code, and ideally publish it from an unknown address. The guy who DMed me mentioned that I triggered a scanner or something. When there are a lot of eyeballs on the drop, I think security by obscurity is all you can really hope for.</li>
+          <li>If possible, lock down the owners of your token. If there's any way that peole can buy fractions of the token for absurdly high prices they will find a way to do it. And if any strangers hold more of the token than you're comfortable with, they will probably try to use all of those tokens.</li>
+        </ul>
+      </article>
+    </section>
+  </div>
+</body>
+
+<script type="text/javascript">
+  var hours = new Date().getHours();
+  if (hours < 5 || hours > 22)
+    document.body.className = 'night-mode';
+</script>
+</html>
