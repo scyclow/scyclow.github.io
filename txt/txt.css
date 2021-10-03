@@ -59,6 +59,9 @@ li.post .date {
   line-height: 2.1;
 }
 
+.text-header h1 {
+  font-size: 56px;
+}
 .text-header {
   padding-bottom: 0.75em;
   font-size: 56px;
