@@ -1,0 +1,198 @@
+<DOCTYPE! html>
+<html>
+
+<head>
+  <title>
+    Compromised
+  </title>
+  <META charset="UTF-8">
+  <META name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="../reset.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="./txt.css">
+  <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+</head>
+
+<style>
+  ol, ul {
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+
+  ol {
+    list-style-type: decimal;
+    margin-left: 4em;
+    font-size: 1.25em;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  img {
+    margin: 1em auto;
+    display: inherit;
+    max-width: 100%;
+    max-height: 400px;
+  }
+
+  h2 {
+    margin-top: 1em;
+  }
+
+  .caption {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .caption > * {
+    text-align: center;
+    max-width: 400px;
+    font-size: 0.75em;
+    margin-top: -15px;
+    margin-bottom: 10px;
+
+  }
+
+  @media (max-width: 599px) {
+    ol {
+      margin-left: 1em;
+    }
+  }
+</style>
+
+
+<body>
+  <nav class="small-header">
+    <div class="text-content">
+      <a href="/"><h2>Steve Pikelny</h2></a>
+      <ul class="header-links">
+        <li><a href="/txt/">Back</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="content text-content">
+    <section>
+      <article class="text">
+        <h1 class="text-header">
+          Compromised
+        </h1>
+        <span class="date">10/18/2021</span>
+        <p>I did something incredibly fucking stupid last Thursday: I accidentally compromised my hot wallet. This led to an <em>immediate</em> loss of thousands of dollars in liquid assets and the eventual loss of some awesome NFTs. In addition, several irreplaceable NFTs (like the steviep.eth ENS entry and my avatar NFT) became locked on that wallet. Making matters worse, ownership over the <a href="https://etherscan.io/address/0xca5228d1fe52d22db85e02ca305cddd9e573d752" target="_blank" rel="nofollow">FastCashMoneyPlus.biz contract</a>, the <a href="https://etherscan.io/address/0x13178AB07A88f065EFe6D06089a6e6AB55AE8a15" target="_blank" rel="nofollow">IOU contract</a>, the <a href="https://www.artblocks.io/project/44" target="_blank" rel="nofollow">CryptoGodKing art blocks project</a>, and the <a href="https://opensea.io/collection/subway-jesus" target="_blank" rel="nofollow">Subway Jesus Pamphlets OpenSea project</a> were all tied to that wallet. It was only a matter of time before the blockchain vultures knew what they had. What follows is a story of intrigue, peril, and crypto espionage.
+        </p>
+
+        <h2>Postmortem</h2>
+
+        <p>On Thursday night I was preparing to deploy a new contract. As with a previous project I planned to host the assets on gh-pages, so I pushed my code to a public github repo. Some healthy paranoia got the better of me as I thought through the logistics of my test deployment to rinkby. I took another look at my code, which unfortunately confirmed my paranoia. I'd just willingly committed my private key and exposed it to the internet 🤦‍♂️. I immediately deleted the repo and thought maybe it wouldn't be that bad. It had only been up for five minutes, so maybe transfering all my assets to another wallet would be an overreaction. But when I opened metamask to check my balance I saw it quickly shift to 0. All the ETH and USDC in that wallet was gone. I normally think putting memes in blog posts is tacky. But fuck it, here it goes:</p>
+
+        <img src="./images/south-park-its-gone.gif">
+
+
+        <p>It was pretty surreal to experience what I'm sure everyone in the crypto space fears. Aside from the sinking feeling in my gut I felt incredibly stupid. As a (formerly) professional software engineer I really should have known better. In fact, I did know better, and I proceeded to make multiple stupid decisions out of laziness. So for the benefit of others, let's briefly analyze my stupidity. Feel free to skip this section and take my word for it that I'm very stupid. But otherwise, here is a list of stupid things I did in descending order from most stupid to least stupid:</p>
+
+        <ol>
+          <li>
+            I used a wallet containing <em>anything of any value</em> for development. There's really no excuse for this. Mistakes happen all the time, and it's completely reasonable for any of the other stupid things on this list to happen. <strong>ALWAYS USE A DEVELOPMENT WALLET FOR ANYTHING AUTOMATED.</strong> You can always transfer contract ownership to a different wallet. There's really no reason to ever use the private key for a wallet you care about.
+          </li>
+          <li>
+            I let the assets of my hot wallet get a little out of control. Hot wallets are convenient, and I fully support keeping a bit of ETH and some of your NFTs in them for easy access. But you really shouldn't store anything in them that you wouldn't mind losing. Storing tens of thousands of dollars in your web browser is not a good idea. I'll at least pat myself on the back for keeping big ticket NFTs and the majority of my funds in my hardware wallet.
+            <img src="./images/78000340.png">
+            <div class="caption"><em >Don't worry, baby. You're safe.</em></div>
+
+            If you're active in the NFT of DeFi space, it's probably good practice to rebalance your wallets on some regular cadence.
+          </li>
+          <li>
+            I assumed a .gitignore file would be sufficient to protect my secrets. The extent of my thinking was more or less the first bullet point of this <a href="https://consensys.net/blog/developers/how-to-avoid-uploading-your-private-key-to-github-approaches-to-prevent-making-your-secrets-public/" rel="nofollow" target="_blank">consensys article</a>. As I explain below, this is not good enough if you have multiple projects.
+          </li>
+          <li>
+            This is probably the most impactful, but also the most understandable bit of stupidity: I copied files into my new repo by doing <code>cp -r ./old-repo/* ./new-repo</code>, which ignores hidden files (like .gitignore). Oops.
+          </li>
+          <li>
+            I put all my contracts and development tools in a public repo. I'm not actually convinced that this is particularly stupid, but keeping this in a private repo would have added some extra buffer for my stupidity.
+          </li>
+        </ol>
+
+        <h2>Damage Control</h2>
+        <p>Okay, enough preaching. In the course of five minutes I'd broadcasted my private key to the entire internet, had my wallet wiped clean of liquid assets, and thoroughly reflected on how stupid I was. After yelling loudly at no one in particular I shifted to damage control mode. All my NFTs were still in the wallet, but I had no gas to send them to a different wallet. I tried sending a little ETH to the compromised wallet as a test, but my ledger decided it was a good time to mysteriously yell <code>ledger device is busy (lock getaddress)</code> whenever I tried to make a transaction. I noticed a 0.1 ETH deposit into the wallet, but that was followed by a transfer of my Roboto and a large Uniswap LP token. A few minutes later there was another deposit-withdrawal combo. This time the withdrawal was more sizable. </p>
+
+        <p>With my NFTs vanishing and my ledger on the fritz I strategized with my friend and business advisor <a href="https://twitter.com/dreamworldream0" rel="nofollow" target="_blank">dreamworld</a> about how to quickly extract my tokens. First we figured that I could gaslessly list them for 0 ETH on OpenSea, but we were worried that bots would snag them before we could pick them up. We ultimately decided to list them for 0 ETH in private sales. This led to a lot of really confusing sales bot messages in the art blocks #block-talk discord channel, but we were able to recover 17 IOUs, <a href="https://opensea.io/assets/0x8f2256063036495f5a362a57757acfcbe72e44b9/10027" target="_blank" rel="nofollow">Tomorrow People #17</a>, <a href="https://opensea.io/assets/0x80416304142fa37929f8a4eee83ee7d2dac12d7c/708" target="_blank" rel="nofollow">Generative Mask #4507</a>, <a href="https://opensea.io/assets/0xde41fd6dfa8194a1b32a91cb1313402007a31173/27" target="_blank" rel="nofollow">BillionDollarDapp Pixel #27</a>, <a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/15362269308139688914970597459783260023715498968984872926049848747056772939777" target="_blank" rel="nofollow">Strata #99</a>, and eight artblock pieces. Frankly, I'm a little offended that the crypto vultures didn't want any of my CryptoGodKings, but I'm very happy I was able to rescue my avatar token. I view this as nothing short of an act of CryptoGodKing.</p>
+
+        <img src="../images/CGK-44000100.png">
+        <div class="caption"><em >All Hail CryptoGodKing #100</em></div>
+        <img src="./images/101000990.png">
+        <div class="caption"><em>Enchiridion #990 rescued</em></div>
+
+        <p>Some of my other NFTs weren't so lucky. I lost <a href="https://opensea.io/assets/0x80416304142fa37929f8a4eee83ee7d2dac12d7c/498" target="_blank" rel="nofollow">Generative Mask #4297</a>, <a href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/64582080536744971998716657472697058248208589501275408193173312130271338823681" target="_blank" rel="nofollow">Exterior # 138</a>, two Lazlo Lissitsky pieces, and eight art blocks pieces (including <a href="https://opensea.io/assets/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/152000208"  target="_blank" rel="nofollow">Fake Internet Money #208</a> and four I Saw It in a Dream pieces). A Mooncat Rescue slipped under the radar, but was taken the next day before I could rescue it a second time. Whoever this vulture is, I have to hand it to them. They <a href="https://opensea.io/0xe1ab07a27d883b9e6476558d8e3ac81a05bfad2f" target="_blank" rel="nofollow">have good taste</a>.
+        </p>
+
+
+        <img src="./images/152000208.png">
+        <div class="caption"><em>RIP -- Fake Internet Money #208</em></div>
+
+        <img src="./images/102000206.png">
+        <div class="caption"><em>RIP -- I Saw It in a Dream #206</em></div>
+
+        <img src="./images/lazlo.png">
+        <div class="caption"><em>RIP -- Lazlo Lissitsky - “Setting the Alarmist Clock” - Cultural Apocalyptic Cycles, Adso Joachim, 1988</em></div>
+
+        <p>Thankfully I was also able to contact art blocks and OpenSea, who were able to transfer ownership of my projects to my hardware wallet. As much as I'd like my royalties and project ownership to be ironclad and locked into the smart contracts, centralization and individual discretion has its perks sometimes. </p>
+
+        <p>Finally, I <a href="https://opensea.io/COMPROMISED_steviep" rel="nofollow" target="_blank">marked my account as compromised and changed the profile</a> such that its status is clear.</p>
+
+        <h2>Entering the Dark Forest</h2>
+        <p><a href="https://www.paradigm.xyz/2020/08/ethereum-is-a-dark-forest/" rel="nofollow" target="_blank">Ethereum is a dark forest</a>. I just learned a very expensive lesson that the second you make a sound in this dark forest you're fucked. I like to think that there are millions of people around the world with no life who are closely monitoring my internet activity, waiting to gobble up any free money I happen to drop. But the reality is that a lot of smart people have spent countless hours building robots to automate this for them. I can't even be mad at bad actors for taking my money. At this point it's a pure force of nature.</p>
+
+        <p>So, now what? I did all I could with gasless transactions, but my primary ENS entry (steviep.eth) was stuck, along with several less-liquid NFTs that I valued highly on a personal level. Additionally, the ownership of several contracts was tied to that wallet. Ownership over the FastCash contract alone gives one control over <em>billions</em> of dollars in wealth, and the owner of the IOU contract has the ability to revoke ownership of any token in the collection. This was bad.</p>
+
+        <p>I made a small test transaction by sending the compromised wallet a little bit of ETH. Seconds later it was siphoned off. I looked through some of the botted transactions and noticed something.</p>
+
+        <img src="./images/transaction-details.png">
+
+        <p>I didn't know much about flashbots, but I knew enough to realize that bots weren't just wiping my wallet immediately -- they were doing it within the same block. My wallet had turned into a war zone. I realized there was no way I could compete with that by manually running transactions. I needed a way to fund the wallet and conduct my business without anyone getting in the middle. I didn't have much of a choice: I had to build my own flashbot. Unfortunately I had no idea how to build my own flashbot.</p>
+
+        <p>"What is a flashbot?" you might ask. <a href="https://docs.flashbots.net/" rel="nofollow" target="_blank">Flashbots</a> is a system designed to combat transaction front running. Normally when you submit a transaction on the Ethereum network it goes into the mempool. When miners mine a block they typically choose to include the most lucrative transactions available. But these transactions are all public while they're pending, which means that certain actors can analyze them and front run in an automated fashion. However, Flashbots relayers can submit transactions directly to miners on a block-by-block basis, so they never enter the mempool. And more importantly, this allows one to bundle a group of transactions so they all take place in the same block. </p>
+
+        <p>After asking around I came across a few good resources and people willing to answer my plethora of questions. Of note, <a href="https://youtu.be/1ve1YIpDs_I" rel="nofollow" target="_blank">this youtube video</a> and its associated github repo were excellent starting points. Over the course of the next two days I was able to put together the pieces to build my own flashbots script. Then on Saturday evening I ran three bundles to more or less retrieve everything that was left. I was able to reclaim ownership of the FastCashMoneyPlus contract, the IOU contract, the steviep.eth ENS domain, <a href="https://opensea.io/assets/0xc9cb0fee73f060db66d2693d92d75c825b1afdbf/3760" rel="nofollow" target="_blank">my deafbeef fastcash First First</a>, <a href="https://opensea.io/assets/0xf210d5d9dcf958803c286a6f8e278e4ac78e136e/4517" rel="nofollow" target="_blank">my 2007 Kia Sedona</a>, <a href="https://opensea.io/assets/0x2a680bb87962a4bf00a9638e0f43ae0bb7164528/19" rel="_blank" target="_blank">my Enchiridion prototype</a>, <a href="https://opensea.io/assets/0x28959cf125ccb051e70711d0924a62fb28eaf186/0" rel="nofollow" target="_blank">my rare Buddha Matt stickers</a>, and <a href="https://opensea.io/assets/0xd07dc4262bcdbf85190c01c996b4c06a461d2430/93602" rel="nofollow" target="_blank">my chicken</a>.</p>
+
+        <img src="./images/buddha-matt.png">
+        <div class="caption"><em >Buddha Matt is safe</em></div>
+
+        <img src="./images/first-fastcash.svg">
+        <div class="caption"><em >The first deafbeef first first to be rescued by a flashbot from a compromised wallet</em></div>
+
+        <p>You can view the actual code I used to recover my NFTs and contracts <a href="https://github.com/scyclow/flashbot" target="_blank" rel="nofollow">on this github repo</a>, which thankfully doesn't contain any of my private keys.</p>
+
+        <p>There are still a few pieces sitting in limbo, but one day I'll return to the forest to retrieve them.</p>
+
+        <h2>Final Thoughts</h2>
+
+        <p>As stressful as this whole experience was, it was also fascinating. I'm not sure if this is at all rational, but in many ways the sense of violation and helplessness I felt on Thursday was matched by the excitement and empowerment I felt at being able to recover my remaining assets. It really emphasized the wild west nature of the crypto landscape at the moment, and will ensure that I never take my security for granted again. It makes me wonder whether web3 will seriously enter the mainstream, or if it will remain a semi-niche. Overall, I can't be too upset about how things unfolded. I've been incredibly lucky to endup where I am today, so running into the occasional bit of bad luck feels more like the cost of doing business.</p>
+
+        <p>I also wonder how this will affect the future market value of all the NFTs involved in this whole ordeal. I'd like to think that my Buddha Matt stickers will be worth millions of dollars because of the added Louvre heist-style flair that it's gained. And I wonder what sort of life Fake Internet Money #208 will have. Maybe one day it will end up back in my possession. And if not, then maybe someone else will be able to appreciate its journey. NFTs are supposedly forever, and forever is a long time. Or maybe the crypto vulture who took it forgot the key for the wallet it's now on, and it's effectively burnt. Either way, it's fun to think about.</p>
+
+        <p>In the meantime, I feel like this is too interesting of an experience to waste, so I plan to incorporate it into a new project. Stay tuned...</p>
+
+
+
+
+
+        <footer style="margin-top: 50px;">Steve Pikelny (c) 2021</footer>
+
+
+      </article>
+    </section>
+  </div>
+</body>
+
+<script type="text/javascript">
+  var hours = new Date().getHours();
+  if (hours < 5 || hours > 22)
+    document.body.className = 'night-mode';
+</script>
+</html>
+
+
