@@ -119,6 +119,20 @@ ol > li {
   text-align: center;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.year-section {
+  margin-bottom: 3em;
+}
+
+.year {
+  /*text-decoration: underline;*/
+}
+
 .dashed {
   margin-top: 2em;
   padding: 1em;
