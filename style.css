@@ -12,6 +12,12 @@
        url('./fonts/Inconsolata-regular/Inconsolata-regular.svg#Inconsolata') format('svg');
 }
 
+
+
+* {
+  scrollbar-width: thin;
+}
+
 body {
   background-color: #F5F5F5;
   font-family: 'Inconsolata', sans-serif;
@@ -42,6 +48,12 @@ h2 {
   font-size: 30px;
 }
 
+#filterContainer {
+  font-size: 1.5em;
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+
 .header .header-links{
   font-size: 24px;
 }
@@ -58,6 +70,7 @@ h2 {
 
 .projects, .filler {
   max-width: 780px;
+  margin: auto;
   margin-bottom: 4em;
 }
 
@@ -164,6 +177,7 @@ strong {
 .night-mode a:visited {
   color: #F5F5F5;
   background-color: #333333;
+  scrollbar-color: darkgray black;
 }
 
 .night-mode a,

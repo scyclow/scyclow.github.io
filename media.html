@@ -23,6 +23,43 @@
       margin-top: 1em;
       font-size: 20px;
     }
+    .media-links a {
+      display: flex;
+      align-items: center;
+    }
+
+    .iblock {
+      display: inline-block;
+    }
+
+    .mtype {
+      margin-right: 1ch;
+      display: inline-block;
+    }
+
+    .content {
+      max-width: 720px;
+    }
+
+    ul {
+      list-style: none;
+      margin-left: 0;
+    }
+
+    @media (max-width: 650px) {
+      .selection-content {
+        padding: 2em;
+      }
+    }
+    @media (max-width: 560px) {
+      .selection-content {
+        padding: 1em;
+      }
+
+      li a {
+        font-size: 0.9em;
+      }
+    }
   </style>
 </head>
 
@@ -34,92 +71,102 @@
     </div>
   </div>
 
-  <div class="header">
-    <h2>In the Media</h2>
-
-    <div class="media-links">
-      <a href="https://www.youtube.com/watch?v=0fcAJC3s838" target="_blank" rel="nofollow">Particle Collection -- Steve Pikelny: Crypto and the Art of Satire</a>
+  <div class="content selection-content">
+    <div class="header" style="padding-top: 0; padding-bottom: 1em;">
+      <h2>Media</h2>
+      <h3><span class="iblock">(p) podcast</span> | <span class="iblock">(v) video</span> | <span class="iblock">(a) article</span> | <span class="iblock">(e) exhibition</span></h3>
     </div>
 
-    <div class="media-links">
-      <a href="https://www.ooekultur.at/exhibition-detail/dyor-nfa" target="_blank" rel="nofollow">DYOR/NFA by Steve Pikelny - Solo Exhibition at Francisco Carolinum</a>
-    </div>
+    <ul>
+      <li class="media-links">
+        <a href="https://podcasters.spotify.com/pod/show/waitingtobesigned/episodes/Holistic-Internet-Experience-Interview-with-Steve-Pikelny-Stevie-P-e2nnlnm" target="_blank" rel="nofollow"><span class="mtype">(p)</span> Waiting To Be Signed -- Holistic Internet Experience: Interview With Steve Pikelny</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.youtube.com/live/6NIj89y61r8?si=gPT7nXSlAYMgWxtT&t=1920" target="_blank" rel="nofollow">Grails V Revealed: StevieP</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.youtube.com/watch?v=0fcAJC3s838" target="_blank" rel="nofollow"><span class="mtype">(p)</span> Particle Collection -- Steve Pikelny: Crypto and the Art of Satire</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.youtube.com/watch?v=2MXTpiCmjiA&ab_channel=TheCarlyPReillyShow" target="_blank" rel="nofollow">The Carly P Reilly Show: Online Scammer Exposed by Artist</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.ooekultur.at/exhibition-detail/dyor-nfa" target="_blank" rel="nofollow"><span class="mtype">(e)</span> DYOR/NFA by Steve Pikelny - Solo Exhibition at Francisco Carolinum</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.ensemble.art/story/dancing-man" target="_blank" rel="nofollow">Ensemble Interview: Steve Pikelny</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.youtube.com/live/6NIj89y61r8?si=gPT7nXSlAYMgWxtT&t=1920" target="_blank" rel="nofollow"><span class="mtype">(v)</span> Grails V Revealed: StevieP</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://marketmakers.webflow.io/" target="_blank" rel="nofollow">Market Makers: Berliner Volksbank</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.youtube.com/watch?v=2MXTpiCmjiA&ab_channel=TheCarlyPReillyShow" target="_blank" rel="nofollow"><span class="mtype">(v)</span> The Carly P Reilly Show: Online Scammer Exposed by Artist</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://feralfile.com/exhibitions/source" target="_blank" rel="nofollow">Feral File: Source</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.ensemble.art/story/dancing-man" target="_blank" rel="nofollow"><span class="mtype">(v)</span> Ensemble Interview: Steve Pikelny</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.forbes.com/sites/digital-assets/2023/08/02/6-nft-artists-and-experimental-studios-to-watch-in-2023/?sh=20d5d69c3c4b" target="_blank" rel="nofollow">6 NFT Artists And Experimental Studios To Watch In 2023</a>
-    </div>
+      <li class="media-links">
+        <a href="https://marketmakers.webflow.io/" target="_blank" rel="nofollow"><span class="mtype">(e)</span> Market Makers: Berliner Volksbank</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.artblocks.io/info/spectrum/in-conversation-with-steve-pikelny-on-dopamine-machines" target="_blank" rel="nofollow">Art Blocks Spectrum: In Conversation with Steve Pikelny on Dopamine Machines</a>
-    </div>
+      <li class="media-links">
+        <a href="https://feralfile.com/exhibitions/source" target="_blank" rel="nofollow"><span class="mtype">(e)</span> Feral File: Source</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://outland.art/steve-pikelny-scam-artist/" target="_blank" rel="nofollow">Outland: Scam Artist by Brian Droitcour </a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.forbes.com/sites/digital-assets/2023/08/02/6-nft-artists-and-experimental-studios-to-watch-in-2023/?sh=20d5d69c3c4b" target="_blank" rel="nofollow"><span class="mtype">(a)</span> 6 NFT Artists And Experimental Studios To Watch In 2023</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://proofofconcept.sg/artist/steve-pikelny/" target="_blank" rel="nofollow">Proof of Concept (Organised by Co-Museum)</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.artblocks.io/info/spectrum/in-conversation-with-steve-pikelny-on-dopamine-machines" target="_blank" rel="nofollow"><span class="mtype">(a)</span> Art Blocks Spectrum: In Conversation with Steve Pikelny on Dopamine Machines</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.ensemble.works/story/uncirculated-fake-internet-money#artifacts" target="_blank" rel="nofollow">Ensemble Interview: Uncirculated Fake Internet Money</a>
-    </div>
+      <li class="media-links">
+        <a href="https://outland.art/steve-pikelny-scam-artist/" target="_blank" rel="nofollow"><span class="mtype">(a)</span> Outland: Scam Artist by Brian Droitcour </a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://lacollection.medium.com/interview-with-artist-steve-pikelny-ee0d5cf93a53" target="_blank" rel="nofollow">Steve Pikelny Interview With laCollection</a>
-    </div>
+      <li class="media-links">
+        <a href="https://proofofconcept.sg/artist/steve-pikelny/" target="_blank" rel="nofollow"><span class="mtype">(e)</span> Proof of Concept (Organised by Co-Museum)</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://podcasts.apple.com/us/podcast/steve-pikelny-mitchell-chan-dadabots/id1611604712?i=1000571502099" target="_blank" rel="nofollow">Minters & Makers (Steve Pikelny, Mitchell Chan, Dadabots)</a>
-    </div>
+      <li class="media-links">
+        <a href="https://www.ensemble.works/story/uncirculated-fake-internet-money#artifacts" target="_blank" rel="nofollow"><span class="mtype">(a)</span> Ensemble Interview: Uncirculated Fake Internet Money</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://jpg.space/William%20M.%20Peaster/exhibition/Rhea-x-Stevie-x-Simon" target="_blank" rel="nofollow">JPG Twitter Spaces (ft Rhea Myers, Simon Denny, Steve Pikelny)</a>
-    </div>
+      <li class="media-links">
+        <a href="https://lacollection.medium.com/interview-with-artist-steve-pikelny-ee0d5cf93a53" target="_blank" rel="nofollow"><span class="mtype">(a)</span> Steve Pikelny Interview With laCollection</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://www.youtube.com/watch?v=SG137GIbf4s&ab_channel=ArtBlocksOfficial" target="_blank" rel="nofollow">Episode 50: Art Blocks After Dinner Mints w/ Steve Pikelny</a>
-    </div>
+      <li class="media-links">
+        <a href="https://podcasts.apple.com/us/podcast/steve-pikelny-mitchell-chan-dadabots/id1611604712?i=1000571502099" target="_blank" rel="nofollow"><span class="mtype">(p)</span> Minters & Makers (Steve Pikelny, Mitchell Chan, Dadabots)</a>
+      </li>
+
+      <li class="media-links">
+        <a href="https://jpg.space/William%20M.%20Peaster/exhibition/Rhea-x-Stevie-x-Simon" target="_blank" rel="nofollow"><span class="mtype">(p)</span> JPG Twitter Spaces (ft Rhea Myers, Simon Denny, Steve Pikelny)</a>
+      </li>
+
+      <li class="media-links">
+        <a href="https://www.youtube.com/watch?v=SG137GIbf4s&ab_channel=ArtBlocksOfficial" target="_blank" rel="nofollow"><span class="mtype">(v)</span> Episode 50: Art Blocks After Dinner Mints w/ Steve Pikelny</a>
+      </li>
 
 
-    <div class="media-links">
-      <a href="https://anchor.fm/digitallyrare/episodes/free-jesus-pamphlet-fast-cash-money-cash-plus-dot-biz-crypto-god-king-condiments-e1f5dtp" target="_blank" rel="nofollow">Digitally Rare: free jesus pamphlet fast cash money cash plus dot biz crypto god king condiments</a>
-    </div>
+      <li class="media-links">
+        <a href="https://anchor.fm/digitallyrare/episodes/free-jesus-pamphlet-fast-cash-money-cash-plus-dot-biz-crypto-god-king-condiments-e1f5dtp" target="_blank" rel="nofollow"><span class="mtype">(p)</span> Digitally Rare: free jesus pamphlet fast cash money cash plus dot biz crypto god king condiments</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://zine.zora.co/stevie-p-feedback-loops-and-topographies-of-ketchup" target="_blank" rel="nofollow">Zora Zine: Feedback Loops and Topographies of Ketchup</a>
-    </div>
+      <li class="media-links">
+        <a href="https://zine.zora.co/stevie-p-feedback-loops-and-topographies-of-ketchup" target="_blank" rel="nofollow"><span class="mtype">(a)</span> Zora Zine: Feedback Loops and Topographies of Ketchup</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://shows.acast.com/ipse-dixit/episodes/nft-notes-4-steve-pikelny-on-how-to-make-it-a-crypto-artist" target="_blank" rel="nofollow">Guest on Ipse Dixit w/ Brian L Frye</a>
-    </div>
+      <li class="media-links">
+        <a href="https://shows.acast.com/ipse-dixit/episodes/nft-notes-4-steve-pikelny-on-how-to-make-it-a-crypto-artist" target="_blank" rel="nofollow"><span class="mtype">(p)</span> Guest on Ipse Dixit w/ Brian L Frye</a>
+      </li>
 
-    <div class="media-links">
-      <a href="https://weibo.com/l/wblive/p/show/1022:2321324629523948765267" target="_blank" rel="nofollow">CryptoGodKing #100 sold at a fake auction at the Goethe Institute in Bejing [at 15:20]</a>
-    </div>
+      <li class="media-links">
+        <a href="https://weibo.com/l/wblive/p/show/1022:2321324629523948765267" target="_blank" rel="nofollow"><span class="mtype">(e)</span> CryptoGodKing #100 sold at a fake auction at the Goethe Institute in Bejing [at 15:20]</a>
+      </li>
+    </ul>
+
   </div>
 
-  <footer class="header"></footer>
+  <footer class="header" style="margin-bottom: 4em;"></footer>
 </body>
 
 <script type="text/javascript">
