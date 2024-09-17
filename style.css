@@ -191,3 +191,8 @@ strong {
   color: #000000;
   background-color: #FFFFFF;
 }
+
+.nightMode select option, .night-mode select {
+  background-color: #222;
+  color: #fff;
+}

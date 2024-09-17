@@ -28,15 +28,21 @@
       font-size: 0.75em;
       text-align: center;
       cursor: pointer;
+      padding: 0.25em 0;
+      font-family: 'Inconsolata', monospace;
     }
 
     .hidden {
       display: none;
     }
 
+
     @media (max-width: 470px) {
-      .selection-content {
+      .selection-content, .header {
         padding: 1.5em;
+      }
+      .header {
+        padding-bottom: 0;
       }
       .project-description, p {
         font-size: 18px;
@@ -348,7 +354,11 @@
             </a>
           </div>
           <div class="project-description">
-            Maps generated to represent nothing in particular. Read the <a href="https://cryptogateway.0ms.co/maps-of-nothing" target="_blank">interview with the artist</a>.
+            Maps generated to represent nothing in particular.
+            <ul>
+              <li>Read the <a href="https://cryptogateway.0ms.co/maps-of-nothing" target="_blank">interview with the artist</a>.</li>
+              <li><a href="/maps" target="_blank">Generate out of band maps</a></li>
+            </ul>
           </div>
         </article>
 
@@ -462,6 +472,9 @@
 
           <div class="project-description">
             A generative art project based on something I saw before I fell asleep.
+            <ul>
+              <li><a href="/i-saw-it-in-a-dream/" target="_blank">Generate out of band outputs</a></li>
+            </ul>
           </div>
         </article>
 
@@ -788,6 +801,20 @@
       <section class="year-section">
         <h2 class="year">[ 2015 ]</h2>
 
+        <article class="project" id="grid">
+          <div class="project-header">
+            <a target="_blank" class="project-link" href="/grid">
+              Grid
+            </a>
+            <br>
+            <a target="_blank" class="project-src" rel="nofollow" href="https://github.com/scyclow/grid">src</a>
+          </div>
+
+          <div class="project-description">
+            Flash warning
+          </div>
+        </article>
+
         <article class="project" id="recurse">
           <div class="project-header">
             <a target="_blank" class="project-link" href="https://steviep.xyz/recurse">
@@ -812,7 +839,7 @@
           </div>
 
           <div class="project-description">
-            Flash warning.
+            Flash warning
           </div>
         </article>
 
@@ -826,7 +853,7 @@
           </div>
 
           <div class="project-description">
-            Flash warning.
+            Flash warning
           </div>
         </article>
       </section>
@@ -1039,33 +1066,6 @@ TODO:
   ]
 
 
-/*
-    chronological
-
-
-
-    NFTs
-
-    Writing
-
-
-    Websites
-
-    audio-visual
-
-    $$$$$
-
-
-    Smart contract art
-
-
-    Photography
-      sjp, free, natural flavors, three balls
-
-    early experiments
-
-    Random
-*/
 
   function shuffle(arr, n) {
     return arr.map(value => ({ value, sort: Math.random() }))
@@ -1087,8 +1087,10 @@ TODO:
     photos: ['jesus', 'free', 'flavors'],
     ai: ['finsexy', 'threeBalls', 'markovy'],
     bSides: ['maps', 'sexydating', 'terminallyOnline', 'etf', 'offon', 'rpaa', 'iou', 'dream', 'cryptoTax', 'threeBalls'],
-    experiments: ['0o0', 'sounds', 'recurse', 'something', 'jackdumpUSA', '404', 'ripple', 'wiygn', 'xOxOx', 'numbers', 'cube', 'markovy', 'musicPlayer'],
+    experiments: ['0o0', 'sounds', 'recurse', 'something', 'jackdumpUSA', '404', 'ripple', 'wiygn', 'xOxOx', 'numbers', 'grid', 'cube', 'markovy', 'musicPlayer'],
   }
+
+
 
   document.getElementById('filterContainer').innerHTML =
     '<select id="filter">' +
@@ -1111,8 +1113,8 @@ TODO:
     '</select>'
 
 
-  document.getElementById('filter').onchange = e => {
-    var f = e.target.value
+
+  function filter(f) {
     var $filterView = document.getElementById('filterView')
 
     document.getElementById('chronologicalView').classList.add('hidden')
@@ -1125,8 +1127,8 @@ TODO:
       document.getElementById('filterView').classList.add('hidden')
 
     } else if (f === 'rand') {
-      var selection = shuffle(allProjects, 10)
-      selection.forEach(s => {
+      var selection = shuffle(allProjects, 5)
+      selection.forEach(function(s) {
         var $clone = document.getElementById(s).cloneNode(true)
         $filterView.appendChild($clone)
       })
@@ -1135,16 +1137,51 @@ TODO:
       var selection = [...document.getElementsByClassName('commission')].map(e => [...e.children]).flat()
       $filterView.innerHTML = '<div class="project-description"><ul id="filteredCommissions" style="max-width: 500px; margin: auto"></ul></div>'
 
-      selection.forEach(s => {
+      selection.forEach(function(s) {
         var $clone = s.cloneNode(true)
         document.getElementById('filteredCommissions').appendChild($clone)
       })
     } else {
-      const selection = filters[f]
-      selection.forEach(s => {
+      var selection = filters[f]
+      selection.forEach(function(s) {
         var $clone = document.getElementById(s).cloneNode(true)
         $filterView.appendChild($clone)
       })
+    }
+  }
+
+  document.getElementById('filter').onchange = function(e) {
+    var f = e.target.value
+    window.location.hash = f
+    filter(f)
+  }
+
+  var allFilters = [
+    'chronological',
+    'hits',
+    'generative',
+    'websites',
+    'smartContracts',
+    'nfts',
+    'writing',
+    'av',
+    '$$$$$',
+    'scams',
+    'photos',
+    'ai',
+    'bSides',
+    'commissions',
+    'experiments',
+    'rand',
+  ]
+
+  var hash = window.location.hash.replace('#', '')
+
+  if (hash && allFilters.includes(hash)) {
+    filter(hash)
+    var options = document.getElementById('filter').getElementsByTagName('option')
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].value === hash) options[i].selected = true
     }
   }
 </script>
