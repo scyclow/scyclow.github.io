@@ -269,7 +269,9 @@
             </ul>
           </div>
         </article>
+      </section>
 
+      <section>
         <h2 class="year">[ 2022 ]</h2>
 
 
@@ -1068,9 +1070,9 @@ TODO:
 
 
   function shuffle(arr, n) {
-    return arr.map(value => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value)
+    return arr.map(function (value) { return { value, sort: Math.random() }})
+      .sort(function(a, b) { return a.sort - b.sort })
+      .map(function(x)  { return x.value })
       .slice(0, n)
   }
 
