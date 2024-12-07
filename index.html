@@ -79,6 +79,9 @@
       <a target="_blank" href="mailto:steve.pikelny@gmail.com">email</a>
     </div>
     <div class="header-links">
+      <a target="_blank" rel="nofollow" href="https://bsky.app/profile/steviep.xyz">bluesky</a>
+    </div>
+    <div class="header-links">
       <a target="_blank" href="https://steviep.xyz/media">media</a>
     </div>
     <div class="header-links">
@@ -102,8 +105,29 @@
 
       <section class="year-section">
         <h2 class="year">[ 2024 ]</h2>
+        <article class="project" id="trees">
+          <div class="project-header">
+            <a target="_blank" class="project-link" href="https://steviep.xyz/one-million-trees/">
+              One Million Trees
+            </a>
+          </div>
+          <div class="project-description">
+            One million NFT Trees, planted on the Arbitrum blockchain to satisfy the requirements of a Smart Burn Contract ownership.
+          </div>
+        </article>
 
-        <article class="project hidden" id="spending">
+        <article class="project" id="predict">
+          <div class="project-header">
+            <a target="_blank" class="project-link" href="https://predict.steviep.xyz">
+              Predict The Number
+            </a>
+          </div>
+          <div class="project-description">
+            A prediction market in anticipation of me picking a number between 1 and 5. The number was 5.
+          </div>
+        </article>
+
+        <article class="project" id="spending">
           <div class="project-header">
             <a target="_blank" class="project-link" href="/txt/spending-game">
               $pending Game
@@ -1078,17 +1102,18 @@ TODO:
 
   var filters = {
     hits: ['fastcash', 'dopamine', 'finsexy', 'mmo', 'fim', 'special', 'instructions', 'jesus', 'free', 'nvc'],
-    generative: ['dopamine', 'fim', 'instructions', 'pointers', 'artTokens', 'maps', 'cgk', 'dream', 'ufim', 'nvc', 'iou'],
+    generative: ['dopamine', 'fim', 'instructions', 'pointers', 'artTokens', 'maps', 'cgk', 'dream', 'ufim', 'nvc', 'iou', 'trees'],
     websites: ['finsexy', 'fastcash', 'ronamerch', 'sexydating', 'friendworld', 'terminallyOnline', 'cryptoTax', 'fakebullshit'],
-    smartContracts: ['mmo', 'free', 'imagine', 'offon', '10eth', 'fiefdoms', 'etf', 'notasecurity'],
-    nfts: ['fim', 'dopamine', 'mmo', 'nvc', 'free', 'cgk', 'cash', 'flavors', 'ufim', 'iou', 'etf', 'offon', '10eth', 'fiefdoms', 'jesus', 'finsexy', 'terminallyOnline', 'rpaa', 'instructions', 'pointers', 'maps', 'artTokens', 'dream', 'threeBalls'],
+    smartContracts: ['mmo', 'free', 'imagine', 'offon', '10eth', 'fiefdoms', 'etf', 'predict', 'trees', 'notasecurity'],
+    nfts: ['fim', 'dopamine', 'mmo', 'nvc', 'free', 'cgk', 'cash', 'flavors', 'ufim', 'iou', 'etf', 'offon', '10eth', 'fiefdoms', 'jesus', 'finsexy', 'terminallyOnline', 'rpaa', 'instructions', 'pointers', 'maps', 'trees', 'artTokens', 'dream', 'threeBalls'],
     writing: ['special', 'spending', 'help', 'wsj', 'finsexy', 'friendworld', 'sexydating'],
     av: ['dopamine', 'terminallyOnline', 'cgk', 'sounds', '404', 'wiygn'],
-    $$$$$: ['fim', 'cash', 'instructions', 'mmo', 'etf', 'nvc', 'fastcash', 'notasecurity', 'ufim', '10eth', 'iou', 'notasecurity'],
+    $$$$$: ['fim', 'cash', 'instructions', 'mmo', 'etf', 'nvc', 'fastcash', 'notasecurity', 'ufim', '10eth', 'iou', 'predict', 'notasecurity'],
     scams: ['finsexy', 'fastcash', 'fakebullshit', 'friendworld', 'ronamerch', 'sexydating', 'wsj', 'cryptoTax', 'help'],
     photos: ['jesus', 'free', 'flavors'],
+    games: ['spending', 'free', 'finsexy'],
     ai: ['finsexy', 'threeBalls', 'markovy'],
-    bSides: ['maps', 'sexydating', 'terminallyOnline', 'etf', 'offon', 'rpaa', 'iou', 'dream', 'cryptoTax', 'threeBalls'],
+    bSides: ['maps', 'sexydating', 'terminallyOnline', 'etf', 'offon', 'rpaa', 'iou', 'dream', 'cryptoTax', 'trees', 'threeBalls'],
     experiments: ['0o0', 'sounds', 'recurse', 'something', 'jackdumpUSA', '404', 'ripple', 'wiygn', 'xOxOx', 'numbers', 'grid', 'cube', 'markovy', 'musicPlayer'],
   }
 
@@ -1108,6 +1133,7 @@ TODO:
       '<option value="scams">Scams</option>' +
       '<option value="photos">Photography</option>' +
       '<option value="ai">AI</option>' +
+      '<option value="games">Games</option>' +
       '<option value="bSides">B-Sides</option>' +
       '<option value="commissions">Commissions</option>' +
       '<option value="experiments">Early Experiments</option>' +
@@ -1170,8 +1196,10 @@ TODO:
     '$$$$$',
     'scams',
     'photos',
+    'games',
     'ai',
     'bSides',
+    'games',
     'commissions',
     'experiments',
     'rand',
