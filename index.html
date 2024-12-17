@@ -1115,7 +1115,7 @@ TODO:
   }
 
   var filters = {
-    hits: ['fastcash', 'dopamine', 'finsexy', 'mmo', 'fim', 'special', 'instructions', 'jesus', 'free', 'nvc'],
+    hits: ['fastcash', 'dopamine', 'smarthome', 'finsexy', 'mmo', 'fim', 'special', 'instructions', 'jesus', 'free', 'nvc'],
     generative: ['dopamine', 'fim', 'instructions', 'pointers', 'artTokens', 'maps', 'cgk', 'dream', 'ufim', 'nvc', 'iou', 'trees'],
     websites: ['finsexy', 'fastcash', 'ronamerch', 'sexydating', 'friendworld', 'terminallyOnline', 'cryptoTax', 'smarthome', 'fakebullshit'],
     smartContracts: ['mmo', 'free', 'imagine', 'offon', '10eth', 'fiefdoms', 'etf', 'predict', 'trees', 'notasecurity'],
@@ -1176,8 +1176,19 @@ TODO:
       })
 
     } else if (f === 'commissions') {
-      var selection = [...document.getElementsByClassName('commission')].map(e => [...e.children]).flat()
-      $filterView.innerHTML = '<div class="project-description"><ul id="filteredCommissions" style="max-width: 500px; margin: auto"></ul></div>'
+
+      var selection = []
+      var comissionElements = document.getElementsByClassName('commission')
+
+      for (var i = 0; i < comissionElements.length; i++) {
+        var children = comissionElements[i].children
+
+        for (var j = 0; j < children.length; j++) {
+          selection.push(children[j])
+        }
+      }
+
+      $filterView.innerHTML = '<div class="project-description"><ul id="filteredCommissions" style="max-width: 500px; margin: 1em auto"></ul></div>'
 
       selection.forEach(function(s) {
         var $clone = s.cloneNode(true)
