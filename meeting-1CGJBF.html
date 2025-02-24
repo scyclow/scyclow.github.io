@@ -1,0 +1,365 @@
+<html>
+<head>
+  <title>Meeting 1cGJBF</title>
+
+  <style>
+
+
+    * {
+      /*font-family: 'Fira Mono', mono space;*/
+    }
+
+    body {
+      margin:0;
+      padding: 0;
+      /*background-color: #111111;*/
+      /*color: #fdfbfa;*/
+    }
+
+    button {
+      margin: 1em;
+    }
+    .bg {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: linear-gradient(0deg, #332222 0%, #111111 35%);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      margin-bottom: 0.3em;
+    }
+
+    h1 {
+      font-size: 80px;
+      letter-spacing: 3px;
+      color: #ff3322;
+      text-shadow: 0 0 6px #ff5533;
+    }
+
+    .title {
+      width: 736px;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    .skull-container {
+      height: 370px;
+      max-height: 100vw;
+      box-sizing: border-box;
+      padding-left: 14px
+    }
+
+    h2 {
+      font-size: 40px;
+    }
+
+
+    section {
+      margin: auto;
+      margin-top: 3em;
+      max-width: 800px;
+      width: 100%;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+
+
+    p {
+      font-size: 18px;
+      font-family: 'Roboto', sans serif;
+
+      margin: 1.5em 0;
+      line-height: 1.6;
+    }
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skull {
+      fill: #111111;
+    }
+
+    .flicker {
+      animation: flicker infinite 200ms, breathe infinite 20000ms;
+      /*letter-spacing: 4px;*/
+    }
+
+    .flickerWaver {
+      animation: flicker infinite 200ms, breathe infinite 20000ms, waver infinite 20000ms;
+      /*stroke: white*/
+    }
+
+    #killme {
+      position: absolute;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      animation: flash infinite 200ms linear;
+    }
+
+
+    #canvas {
+      animation: spin infinite 2000ms linear;
+    }
+
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    @keyframes flash {
+      0% { background-color: #ff0000; }
+      17% { background-color: #00ffff; }
+      33% { background-color: #00ff00; }
+      50% { background-color: #ff00ff; }
+      66% { background-color: #0000ff; }
+      83% { background-color: #ffff00; }
+      100% { background-color: #ff0000; }
+    }
+
+    @keyframes flicker {
+      0% {
+        color: #ff3322;
+        stroke: #ff3322;
+      }
+      50% {
+        color: #ff4433;
+        stroke: #ff4433;
+      }
+      100% {
+        color: #ff3322;
+        stroke: #ff3322;
+      }
+    }
+
+    @keyframes waver {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.04);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes breathe {
+      0% { letter-spacing: 3px }
+      50% { letter-spacing: 4px }
+      100% { letter-spacing: 3px }
+    }
+
+
+    @media (max-width: 760px) {
+      h1 {
+        font-size: 60px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .title {
+        width: 560px
+      }
+
+      .skull {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 590px) {
+      h1 {
+        font-size: 50px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      .title {
+        width: 410px
+      }
+
+      .skull {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .title {
+        width: 290px
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="saveme">
+
+  <button id="button">View</button>
+  </div>
+  <div id="killme">
+    <canvas id="canvas"></canvas>
+  </div>
+</body>
+
+<script>
+
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const canvas = document.getElementById('canvas');
+  const saveme = document.getElementById('saveme');
+  const killme = document.getElementById('killme');
+  const button = document.getElementById('button');
+  const ctx = canvas.getContext('2d');
+
+  const width = window.innerWidth
+  const height = window.innerHeight
+  canvas.width = width
+  canvas.height = height
+
+  const sample = arr => arr[Math.floor(Math.random() * arr.length)]
+  const primaryColors = ['#550000', '#005500', '#000055', '#005555', '#550055', '#555500', '#000000']
+  const secondaryColors = ['#00ffff', '#ff55ff', '#ffff00', '#ff5555', '#00ff00', '#5555ff', '#ffffff']
+
+  const numTriangles = 20
+  function* createFrames(ctx) {
+    let fillColor = true
+    let offset = 0
+    const h = height / numTriangles
+
+    while (true) {
+      fillColor = !fillColor
+      offset = offset >= h ? 0 : offset + 1
+
+      ctx.clearRect(0, 0, width, height)
+      const int = Math.floor(Math.random() * 7)
+      const leftColor = fillColor ? primaryColors[int] : secondaryColors[int]
+      const rightColor = fillColor ? secondaryColors[int] : primaryColors[int]
+
+      for (let l = 0; l < numTriangles + 1; l++) {
+        const start = (height * l ) / numTriangles + offset
+        ctx.beginPath()
+        ctx.moveTo(0, start - h)
+        ctx.lineTo(width, start - h/2)
+        ctx.lineTo(0, start)
+        ctx.closePath()
+        ctx.lineWidth = 0
+        ctx.fillStyle = leftColor
+        ctx.stroke()
+        ctx.fill()
+      }
+      for (let r = 0; r < numTriangles + 1; r++) {
+        const start = (height * r ) / numTriangles + offset
+        const h = height / numTriangles
+        ctx.beginPath()
+        ctx.moveTo(width, start - h/2)
+        ctx.lineTo(0, start)
+        ctx.lineTo(width, start + h/2)
+        ctx.closePath()
+        ctx.lineWidth = 0
+        ctx.fillStyle = rightColor
+        ctx.stroke()
+        ctx.fill()
+      }
+
+      yield
+    }
+  }
+
+  const frames = createFrames(ctx)
+  const draw = i => {
+    frames.next()
+    window.requestAnimationFrame(draw)
+  }
+
+
+  const VOLUME = 8
+  const createTone = (ctx, freq) => {
+    const source = ctx.createOscillator()
+    const gain = ctx.createGain()
+    source.connect(gain)
+    gain.connect(ctx.destination)
+    gain.gain.value = VOLUME
+    source.frequency.setValueAtTime(freq, ctx.currentTime)
+    source.start()
+    return { source, gain }
+  }
+
+  const beExtraAnnoying = () => {
+    window.onbeforeunload = () => '.'
+    killme.requestFullscreen
+      ? killme.requestFullscreen()
+      : killme.webkitRequestFullscreen
+        ? killme.webkitRequestFullscreen()
+        : null
+
+    window.navigator.vibrate(20000)
+  }
+
+  const alternate = (tone, ms) => {
+    let on = true
+    setInterval(() => {
+      if (on) {
+        tone.gain.gain.value = 0
+      } else {
+        tone.gain.gain.value = VOLUME
+      }
+      on = !on
+    }, ms)
+  }
+
+  button.onclick = () => {
+
+    setTimeout(() => {
+      saveme.style.display = 'none'
+      killme.style.display = 'flex'
+      draw()
+      const ctx = new AudioContext();
+      const tone = createTone(ctx, 400)
+
+      setTimeout(() => {
+        beExtraAnnoying()
+      }, 500)
+      setTimeout(() => {
+        const highTone = createTone(ctx, 4000)
+
+        // setTimeout(() => {
+        //   const lowTone = createTone(ctx, 20)
+        //   alternate(lowTone, 1000)
+        // }, 800)
+      }, 1500)
+    }, 1000)
+
+  }
+
+
+
+
+
+
+
+
+</script>
+</html>
