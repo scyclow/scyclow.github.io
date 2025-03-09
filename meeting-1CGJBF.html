@@ -316,6 +316,14 @@
         : null
 
     window.navigator.vibrate(20000)
+
+    document.addEventListener("keydown",function(e){
+        var charCode = e.charCode || e.keyCode || e.which;
+        if (charCode == 27){
+             alert("");
+            return false;
+        }
+    });
   }
 
   const alternate = (tone, ms) => {
