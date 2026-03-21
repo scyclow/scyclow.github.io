@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    :root {
+      /*--primary-color: #ff00c7;*/
+      /*--primary-color: rgb(30, 156, 241);*/
+      --primary-color: hsl(38deg 50% 29%);
+      --border-color: #524552;
+      --border2-color: #29202a;
+      --light-color: #fff8f8;
+      --gray-color: hsl(214 10% 14%);
+      /*--medium-color: #ff66ff;*/
+      --medium-color: #cfcfcf;
+      --dark-color: #120211;
+      --bg-color: var(--dark-color);
+      --light-link-color: #00ffef;
+      --secondary-color: #7202c6;
+      --help-text-color: #b40066;
+      --green-color: #19c72c;
+      --default-font: Trebuchet MS, sans-serif;
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: var(--bg-color);
+      font-family: var(--default-font);
+      padding: 1em;
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      color: var(--light-color);
+      text-align: center;
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+    }
+
+
+    .chatMessage {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.25em;
+      transition: 0.3s;
+    }
+
+    .message {
+      font-size: 1em;
+      padding: 0.85em 1.45em;
+      /*margin-top: 0.75em;*/
+      margin-top: 0.5em;
+      margin-bottom: 0.25em;
+      border-radius: 1em;
+      max-width: 35em;
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .message a {
+      color: var(--light-link-color);
+      text-shadow: 1px 1px 1px var(--dark-color), -1px 0px 3px var(--secondary-color);
+      transition: 200ms;
+    }
+
+    .message a:hover {
+      text-decoration: none;
+      text-shadow: 2px 2px 2px var(--dark-color), -2px 0px 5px var(--secondary-color);
+    }
+
+    .messageContent {
+      line-height: 1.45;
+      padding: 0.25em;
+    }
+
+    .from-you {
+      border-bottom-right-radius: 0;
+      background: var(--primary-color);
+      color: var(--light-color);
+      margin-left: 3em;
+      align-self: flex-end;
+      /*box-shadow: 0 0 20px var(--primary-color);*/
+    }
+
+    .from-them {
+      background: var(--gray-color);
+      color: var(--light-color);
+      border-bottom-left-radius: 0;
+      margin-right: 3em;
+      align-self: flex-start;
+      /*box-shadow: 0 0 20px var(--gray-color);*/
+      /*text-shadow: 1px 1px 0px var(--dark-color), 1px 1px 7px var(--secondary-color);*/
+    }
+
+    .from {
+      margin: 0;
+      text-decoration: underline;
+    }
+
+    h6 {
+      margin-top: 0.5em;
+      margin-bottom: 1em;
+    }
+
+    time {
+      display: block;
+      font-size: 0.5em;
+      margin-top: 1em;
+      margin-bottom: 2.25em;
+      padding: 0 1em;
+      color: var(--medium-color);
+    }
+
+    .alignLeft {
+      text-align: left;
+    }
+
+    .alignRight {
+      text-align: right;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Direct Messages</h1>
+</header>
+
+<section>
+  <div class="chatMessage">
+    <div class="message from-them">
+      <h6 class="from"></h6>
+      <div class="messageContent">Hello,<br><br> I'm a writer at CoinJournal, and I'd love to write a piece about your journey in the world of crypto, NFTs, and digital art. I'm really curious to hear about your experiences and how you see art and blockchain evolving. If you've got some time for a quick chat, I'd really appreciate getting your thoughts on where things are heading.<br><br>Let me know if you're open to a brief conversation—I'd love to connect!</div>
+    </div>
+    <time class="alignLeft">Apr 27, 2025, 6:08 AM</time>
+  </div>
+
+
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">I have a better story for you. I once killed a man, and the guilt has been eating me up for years. I'm tired of carrying this burden. I need the world to know, and I think you might be just the journalist to tell the tale</div>
+    </div>
+    <time class="alignRight">Apr 27, 2025, 7:51 PM</time>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-them">
+      <h6 class="from"></h6>
+      <div class="messageContent">Well, I hope that was a joke. On a lighter topic, would you be interested?</div>
+    </div>
+    <time class="alignLeft">Apr 28, 2025, 8:50 AM</time>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">I'm dead serious. Once this story comes out I'm going to be put in the slammer for a long time. But this could be a career making opportunity for a young journalist like you. It will make the front page of every newspaper once it breaks. And that byline could have your name all over it. So whaddya say?</div>
+    </div>
+    <time class="alignRight">9:06 AM</time>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-them">
+      <h6 class="from"></h6>
+      <div class="messageContent">Apologies but for safety reasons I'm going to have to report your account for that wild claim, as we have to take it seriously. I'd really recommend going to the closest police station and explaining the situation as I'm not too sure about details. Can I please ask where you're from/situated currently and more details on what happened please?</div>
+    </div>
+    <time class="alignLeft">9:08 AM</time>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">It was 1987, and I owed a lot of money to the wrong people after betting it all on a basketball game. I needed to get out of dodge fast, or else my life was in serious danger. I didn't have the money for a plane ticket. Besides, I knew they'd be looking for me on my way to the airport. So I booked the first train ticket going out west. That meant I was headed towards Las Vegas. Sure, I could've gotten off once we hit Chicago. And boy do I wish I did. But Vegas was the city of dreams. Maybe I could start over, or maybe my rotten luck would follow me out there. It was a roll of the dice for sure, but I had to take the chance.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">Twelve hours after Chicago I found myself alone in the snack car. Looking out the window I stared into deep, profound darkness. I had no idea where I was. Maybe Kansas, but it didn't really matter. I could be anywhere and nowhere all at the same time. It was at that moment she walked in. A beautiful blonde bombshell with piercing eyes and a stare that could melt a stick of butter. I still remember that tight dress she was wearing, perfectly accentuating her figure and tightly hugging her breasts. In the moment all I wanted to see was her on top of me with that dress wrinkled in a pile on the floor.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">She sat down next to me and pulled out a pack of cigarettes. "Got a light?" she asked. I pulled out a match, lit it, and drew it close to her mouth. "Got a smoke?" I replied. She held up the box so I could take one. Once it was in my mouth she leaned in close enough that I could smell her perfume and lit my cigarette with hers. She was pure dynamite and she knew it.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">We sat in silence for a few minutes, staring into the darkness and listening to the sound of the train careening forward against the tracks. Finally she breaks the silence and asks, "What's a man like you doing taking a train all the way from Chicago to Vegas? Shouldn't you be on an airplane?". "I can ask you the same question," I replied. She moved closer to me until our thighs touched. I could smell the perfume coming off her body and see tiny beads of sweat forming on her neck. "I'm traveling with my husband," she said before taking a long drag. "I don't see a wedding ring on your hand," I replied. "I only wear it around him".</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">We talked all night, and boy did she lay it on thick. She told me all about that husband of hers. A slot machine salesman named Slippery Jimmy. Ugly, rich, and sometimes abusive after putting down a few drinks. It turns out he was rougher than he was slippery. She married him on a whim two years ago after meeting him at the bar of a casino where she worked at the time. But she realized pretty quickly she made a huge mistake. He told her what she could eat, who she could see, and how she could dress. All of a sudden her life with Jimmy didn't seem so glamorous any more. She felt like she was always stuck in the house wearing a sexy gold dress while he was out banging cocktail waitresses. They hadn't had sex in months, even when he took her on business trips to Chicago. All she needed, she told me, was a little bit of cash to file for the divorce and get back on her feet. And she knew where to get that cash, of course. And would I help her?</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">I'm no dope. I knew what she was getting at, and I wanted no part of it. But when I tried to tell her as much, her sharp glare melted into these soft puppy dog eyes. "Please Stevie, I need your help." She slowly pulled down the straps of her dress, exposing her supple breasts, and brought my hand closer so I could rub her nipple between my thumb and forefinger. She closed her eyes and a slight moan escaped her lips. "I'll do anything," she whispered. We locked lips, and even though we were still hurtling through an empty Kansas night, the world didn't quite seem so dark and empty. It felt like all that mattered was right there between us. I felt her hand rubbing the back of my neck, moving towards my chest, and slowly making its way down to my belt buckle. She undid it with ease and moved onto the zipper. We both jump as we hear a noise from the back of the train car, but it was nothing. After a nervous laugh she drops to her knees in front of me and pulls out my erect cock. "Oh my," she said as her lips slightly grazed it. "It's so... big". And then, as if magnetically drawn to it, she took my throbbing member into her mouth. First the head, but then slowly the entire shaft as well, savoring every inch. As my cock repeatedly hit the back of her throat my mind was oscillating between fear and desire. I was making this trip for a new start. Was this the new start I was looking for. Finally she pulled back and looked up at me with those puppy dog eyes. "I want you inside of me." Without thinking twice I stood her up and bent her over the snack counter. I reached my hands up her dress, pulled down her wet panties, and slid into her from behind. This time a larger moan escaped her lips. And then another one, getting louder with each pump, so I put my free hand over her mouth. I knew we were the only ones in that car, but I didn't want to take any chances. I didn't know what my future held, but I sure as hell didn't want it to involve getting thrown off a train in Topeka in the middle of the night. Her body convulsed in orgasm, and then convulsed again before I finally released my entire load into her sopping pussy. We lied down on the floor, and I held her close, the sweat on our bodies intermingling. She reached down between her legs to wipe off the cum before putting it in her mouth, swallowing, and licking each finger. She kissed me once more, and I could taste the desperation on her breath. But I didn't know if that was from her or me.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">I didn't see her for the rest of the ride, but the next morning I woke up with a note pinned to my lapel. It was from her. Just like the night before, she begged for my help. In a few hours we'd arrive in Kingman, Arizona, and from there we'd take a connecting bus to Las Vegas. But there would be a stopover in Laughlin, Nevada. Right before we leave she'd say she needed to use the restroom. They would both get off the bus, but not make it back in time. Slippery Jimmy would be furious, of course, because the next bus wouldn't be for several hours. So in the meantime, she'd convince him to get a drink at The Rust Spoon Saloon, which was three blocks north east of the bus station. Slippery Jimmy loved to drink, so it wouldn't be long before he was dead drunk. Once he could barely stand on his own accord, she'd lead him out into the back alley. That's where I would be waiting to bash his head in. After that, we would hide his corpse and make our way to Vegas before anyone found him. Slippery Jimmy kept $500,000 in his safe, and she knew the combination. Once we had that cash we could keep moving west until we got to LA. And from there we could start our new lives, together.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">I knew the plan was risky, but I felt like I didn't have a choice. This was the opportunity I'd been waiting for staring me right in the face. A clean slate. I couldn't give that up. So when we finally got off the train in Kingman I looked across the crowd and found her. She must have felt my glance because the second I saw her she turned around. We locked eyes and I gave her a determined nod. There was no turning back now. We were in this together. I got on the bus first and sat in the last row. It was only a two hour ride to Laughlin, but it felt like days. Occasionally I'd look over at the two of them sitting a few rows ahead of me. I'd stare at the back of Slippery Jimmy's head for a few minutes and then turn to look deep into the desert. Was this the man I was going to kill? Could I really end this person's life just for money and a woman? This person I know nothing about? But I told myself it would be fine. This guy didn't sound like a saint. Besides, I'd treat his wife better than he did, not to mention make better use of that $500,000. It would be hard, but I had to do it.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">So when we finally arrived at Laughlin I made my way straight to the alley behind the Rusty Spoon Saloon. And I sat there. Waiting. The light faded from the sky and night slowly crept in. My mind went blank. I was determined to do this. I knew if I second guessed myself it would all fall apart. I don't know how much time passed, but when the back door to the saloon flew open my heart stopped. I saw the silhouette of a man and a woman stumble into the alley. I recognized her voice immediately, but he slurred his words so profusely that I couldn't make out anything he was saying. But something about his tone sounded familiar. After a few seconds they started to make their way towards me. I crouched behind a dumpster and watched each step they took. Slippery Jimmy had maybe one minute left to live and he had no idea. But the second I jumped out from behind the dumpster and tackled him to the ground he knew his life was in danger.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">He put up a pretty good fight for someone that drunk. He even landed a couple shots to my jaw. But ultimately he never stood a chance. I was stone cold sober and he could barely stand up straight. It was so dark that I couldn't really see what I was doing, but with all the adrenaline coursing through my veins I was able to take him down and incapacitate him. With one hand on his throat I reached out to my right to find a brick. As I raised it above my head I looked down to get a clear look at his face for the first time, and my heart stopped. Slippery Jimmy looked exactly like me. The eyes, the nose, the mouth, the beard... everything. I sat there paralyzed. Time seemed to freeze in that moment, but eventually she broke the silence. "Do it!" she yelled, "Bash his fucking head in!" And with that, I brought the brick down into his face, cracking the left side of his skull. I could see the life drain from his right eye. I went completely numb. For a couple minutes I was completely unthinking and unfeeling. It was done. Now all we had to do was to wash the blood off my hands and make our way to Vegas. But when I looked up she was gone.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">I never saw her again after that. She left me high and dry. It's a miracle I was able to get out of Laughlin before the cops figured out what was going on. But somehow I found my way to Vegas with Slippery Jimmy's wallet. I found the house at the address on his license. Total shit hole. No wonder she wanted out. Of course, the safe was cleaned out. I lived in that house for years building something resembling a life for myself. Whenever anyone asked for my ID I just gave them Slippery Jimmy's. Thankfully no one ever looked too closely or ran it through the system to find out that Slippery Jimmy was dead.</div>
+    </div>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-you">
+      <h6 class="from"></h6>
+      <div class="messageContent">And that was that. It took me a long time, but eventually I saved up enough money to make my way back east. By that point my creditors were either dead or run out of town. I tried to pick up some modern job skills and became a software engineer. And soon after that I started making art to deal with the trauma. Thankfully, someone told me about bitcoin back in Vegas in 2010, so I kept an eye on all the blockchain stuff for years before NFTs started taking off. Since then I've just been trying to keep my head down and my nose clean. The art has been a great outlet, but at the end of the day it's not enough. This story has been dragging down my soul for years, and I think it's time that it's finally out there. So thank you, my friend, for giving me this opportunity.</div>
+    </div>
+    <time class="alignRight">12:36 PM · SENT</time>
+  </div>
+
+  <div class="chatMessage">
+    <div class="message from-them">
+      <h6 class="from"></h6>
+      <div class="messageContent">I'll drop our Calendly link in case you'd like to connect for a chat and dive into this properly!</div>
+    </div>
+    <time class="alignLeft">3:26 PM</time>
+  </div>
+</section>
+
+</body>
+</html>
