@@ -36,6 +36,20 @@
       display: none;
     }
 
+    .blinkBorder {
+      animation: DashedBorderBlink 1s steps(2, start) infinite;
+      padding: 0.5em !important;
+    }
+
+    @keyframes DashedBorderBlink {
+      0%, 100% {
+        outline: 3px dashed #f00;
+      }
+
+      50% {
+        outline: 3px none #f00;
+      }
+    }
 
     @media (max-width: 470px) {
       .selection-content, .header {
@@ -1285,6 +1299,10 @@ TODO:
     for (var i = 0; i < options.length; i++) {
       if (options[i].value === hash) options[i].selected = true
     }
+  }
+
+  if (hash && document.getElementById(hash)) {
+    document.getElementById(hash).classList.add('blinkBorder')
   }
 </script>
 
