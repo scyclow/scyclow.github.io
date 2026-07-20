@@ -12,7 +12,7 @@
   >
   <meta
     name="keywords"
-    content="steve pikelny, steviep, steve, steven, pikelny, steven pikelny, steven ross pikelny, stevie, coding, design, web art, web, internet art, net art, new media art, art, artist, best artist, hottest artists, javascript, closed-end fund, etf, fastcashmoneyplus, nft, CryptoGodKing, I Saw It in a Dream, generative art, generative, subway jesus pamphlets, fake, internet, money, fake internet money, free, maps, of, nothing, maps of nothing, imagine coin, ious, negative, value, certificates, negative value certificates, natural flavors, uncirculated, dopamine machines, dopamine, machines, fiefdoms, free, instructions for defacement, instructions, defacement, terminally online, terminally, online, 10 eth giveaway, pointers, radical Pro-Abortion agenda, pro-abortion, ronamerch, fakebullshit, friendworld, conceptual art, solidity, crypto, eth, ethereum, money making opportunity, money, making, opportunity, offon, have you tried turning it off and on again?, scam, scam aesthetic, scam art, scam artist, crypto art, blockchain art, smart contract art, finsexy, smart, home, smarthome, game, text adventure, adventure game, predict the number, one million trees, cold hard cash, money vortex, busd, burnt usd, burnt us dollars, pyramid game, momi activation"
+    content="steve pikelny, steviep, steve, steven, pikelny, steven pikelny, steven ross pikelny, stevie, coding, design, web art, web, internet art, net art, new media art, art, artist, best artist, hottest artists, javascript, closed-end fund, etf, fastcashmoneyplus, nft, CryptoGodKing, I Saw It in a Dream, generative art, generative, subway jesus pamphlets, fake, internet, money, fake internet money, free, maps, of, nothing, maps of nothing, imagine coin, ious, negative, value, certificates, negative value certificates, natural flavors, uncirculated, dopamine machines, dopamine, machines, fiefdoms, free, instructions for defacement, instructions, defacement, terminally online, terminally, online, 10 eth giveaway, pointers, radical Pro-Abortion agenda, pro-abortion, ronamerch, fakebullshit, friendworld, conceptual art, solidity, crypto, eth, ethereum, money making opportunity, money, making, opportunity, offon, have you tried turning it off and on again?, scam, scam aesthetic, scam art, scam artist, crypto art, blockchain art, smart contract art, finsexy, smart, home, smarthome, game, text adventure, adventure game, predict the number, one million trees, cold hard cash, money vortex, busd, burnt usd, burnt us dollars, pyramid game, momi activation, mamdani dollar"
   >
   <link rel="stylesheet" type="text/css" href="./reset.css" />
   <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -1322,6 +1322,32 @@ TODO:
   if (hash && document.getElementById(hash)) {
     document.getElementById(hash).classList.add('blinkBorder')
   }
+</script>
+
+
+<script type="module">
+  import {setupAnalytics, postSnapshot} from './analytics.js'
+
+  try {
+    setupAnalytics()
+  } catch (e) {
+    console.log(e)
+  }
+
+  Array.from(document.querySelectorAll('a.project-link')).forEach(a => {
+    a.onclick = () => {
+      try {
+        const websiteKey = a.href.replace('https://', '').replace('steviep.xyz/', '').replace('./', '').replace(/^\//, '')
+        postSnapshot({
+          [websiteKey]: true
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  })
+
+
 </script>
 
 
