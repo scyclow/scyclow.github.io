@@ -1336,21 +1336,23 @@ TODO:
 
   Array.from(document.querySelectorAll('a.project-link')).forEach(a => {
     const websiteKey = a.href
-        .replace('https://', '')
-        .replace('http://', '')
-        .replace('steviep.xyz/', '')
-        .replace('steviep.xyz', '')
-        .replace('scyclow.github.io/', '')
-        .replace('/txt/', '')
-        .replace('txt/', '')
-        .replace('./', '')
-        .replace(/^\//, '')
-        .replace(/\.$/, '')
-        .replace(/\/$/, '')
-        .replace('artblocks.io/project/102', 'i-saw-it-in-a-dream')
-        .replace('artblocks.io/project/152', 'fake-internet-money')
-        .replace('artblocks.io/project/316', 'maps-of-nothing')
-        .replace('artblocks.io/project/387', 'pointers')
+      .replace('https://', '')
+      .replace('http://', '')
+      .replace('steviep.xyz/', '')
+      .replace('steviep.xyz', '')
+      .replace('scyclow.github.io/', '')
+      .replace('/txt/', '')
+      .replace('txt/', '')
+      .replace('./', '')
+      .replace(/^\//, '')
+      .replace(/\.$/, '')
+      .replace(/\/$/, '')
+      .replace('artblocks.io/project/102', 'i-saw-it-in-a-dream')
+      .replace('artblocks.io/project/152', 'fake-internet-money')
+      .replace('artblocks.io/project/316', 'maps-of-nothing')
+      .replace('artblocks.io/project/387', 'pointers')
+
+      console.log(websiteKey)
 
     a.onclick = () => {
       try {
