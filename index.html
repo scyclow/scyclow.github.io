@@ -388,7 +388,7 @@
 
         <article class="project" id="pointers">
           <div class="project-header">
-            <a target="_blank" class="project-link" rel="nofollow" href="https://www.artblocks.io/collections/presents/projects/0x99a9b7c1116f9ceeb1652de04d5969cce509b069/387">
+            <a target="_blank" class="project-link" rel="nofollow" href="https://artblocks.io/project/387">
               Pointers
             </a>
           </div>
@@ -701,7 +701,7 @@
 
         <article class="project" id="fastcash">
           <div class="project-header">
-            <a target="_blank" class="project-link" href="http://fastcashmoneyplus.biz">
+            <a target="_blank" class="project-link" href="https://fastcashmoneyplus.biz">
               <span
                 class="word-block"
               >FastCashMoneyPlus</span><span
@@ -1335,9 +1335,25 @@ TODO:
   }
 
   Array.from(document.querySelectorAll('a.project-link')).forEach(a => {
+    const websiteKey = a.href
+        .replace('https://', '')
+        .replace('http://', '')
+        .replace('steviep.xyz/', '')
+        .replace('steviep.xyz', '')
+        .replace('scyclow.github.io/', '')
+        .replace('/txt/', '')
+        .replace('txt/', '')
+        .replace('./', '')
+        .replace(/^\//, '')
+        .replace(/\.$/, '')
+        .replace(/\/$/, '')
+        .replace('artblocks.io/project/102', 'i-saw-it-in-a-dream')
+        .replace('artblocks.io/project/152', 'fake-internet-money')
+        .replace('artblocks.io/project/316', 'maps-of-nothing')
+        .replace('artblocks.io/project/387', 'pointers')
+
     a.onclick = () => {
       try {
-        const websiteKey = a.href.replace('https://', '').replace('steviep.xyz/', '').replace('./', '').replace(/^\//, '')
         postSnapshot({
           [websiteKey]: true
         })
