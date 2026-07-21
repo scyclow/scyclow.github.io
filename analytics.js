@@ -30,21 +30,26 @@ if (window.location.href.includes('steviep.xyz')) {
 
 const defaultData = {}
 
+const STORE_KEY = '__STEVIEP_ANALYTICS'
 
-
-if (!ls.get('__STEVIEP_SESSION_ID')) {
-  ls.set('__STEVIEP_SESSION_ID', `"S${Math.random().toString().slice(2)}"`)
+function getStore() {
+  return ls.get(STORE_KEY) || {}
 }
 
-
-if (!ls.get('__STEVIEP_TOTAL_SESSION_TIME')) {
-  ls.set('__STEVIEP_TOTAL_SESSION_TIME', 0)
+function setStore(store) {
+  ls.set(STORE_KEY, JSON.stringify(store))
+  return store
 }
 
-
-
-if (!ls.get('__STEVIEP_ANALYTICS_DATA')) {
-  ls.set('__STEVIEP_ANALYTICS_DATA', JSON.stringify(defaultData))
+if (!ls.get(STORE_KEY)) {
+  setStore({
+    sessionId: ls.get('__STEVIEP_SESSION_ID') || `S${Math.random().toString().slice(2)}`,
+    totalSessionTime: Number(ls.get('__STEVIEP_TOTAL_SESSION_TIME')) || 0,
+    analyticsData: ls.get('__STEVIEP_ANALYTICS_DATA') || defaultData,
+    firstSeen: ls.get('__STEVIEP_FIRST_SEEN') || Date.now(),
+    pageLoads: Number(ls.get('__STEVIEP_PAGE_LOADS')) || 0,
+    referrer: document.referrer
+  })
 }
 
 
@@ -52,16 +57,15 @@ if (!ls.get('__STEVIEP_ANALYTICS_DATA')) {
 let ellapsedInterval, snapshotInterval
 
 export function setupAnalytics() {
-  ls.set('__STEVIEP_PAGE_LOADS', Number(ls.get('__STEVIEP_PAGE_LOADS')) + 1 )
-
-  if (!ls.get('__STEVIEP_FIRST_SEEN')) {
-    ls.set('__STEVIEP_FIRST_SEEN', Date.now())
-  }
+  const store = getStore()
+  store.pageLoads = Number(store.pageLoads) + 1
+  setStore(store)
 
   ellapsedInterval = setInterval(() => {
     if (!document.hidden) {
-      const totalMS = Number(ls.get('__STEVIEP_TOTAL_SESSION_TIME'))
-      ls.set('__STEVIEP_TOTAL_SESSION_TIME', totalMS + 1000)
+      const store = getStore()
+      store.totalSessionTime = Number(store.totalSessionTime) + 1000
+      setStore(store)
     }
   }, 1000)
 
@@ -85,7 +89,7 @@ export async function postSnapshot(newData={}) {
   const data = updateData(newData)
 
   const snapshot = {
-    id: ls.get('__STEVIEP_SESSION_ID').toString(),
+    id: getStore().sessionId,
     application: 'steviep-xyz',
     snapshot: getSnapshot(data)
   }
@@ -96,30 +100,32 @@ export async function postSnapshot(newData={}) {
 
 
 function updateData(newData={}) {
-  const existingData = ls.get('__STEVIEP_ANALYTICS_DATA') || {}
+  const store = getStore()
   const data = {
-    ...existingData,
+    ...store.analyticsData,
     ...newData
   }
 
-  ls.set('__STEVIEP_ANALYTICS_DATA', JSON.stringify(data))
+  store.analyticsData = data
+  setStore(store)
 
   return data
 }
 
 
 function getSnapshot(data) {
+  const store = getStore()
   return {
-    sessionId: ls.get('__STEVIEP_SESSION_ID'),
+    sessionId: store.sessionId,
     version: VERSION,
     env: ENV,
 
     data,
     referrer: document.referrer,
     lastSeen: Date.now(),
-    firstSeen: ls.get('__STEVIEP_FIRST_SEEN'),
-    pageLoads: ls.get('__STEVIEP_PAGE_LOADS'),
-    totalSessionTime: ls.get('__STEVIEP_TOTAL_SESSION_TIME'),
+    firstSeen: store.firstSeen,
+    pageLoads: store.pageLoads,
+    totalSessionTime: store.totalSessionTime,
     navigator: {
       userAgent: navigator?.userAgent,
       language: navigator?.language,
